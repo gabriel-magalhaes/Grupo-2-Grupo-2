@@ -1773,6 +1773,7 @@
 
 
 
+
 .deep-orange.lighten-5 {
   background-color: #fbe9e7 !important;
 }
@@ -2157,6 +2158,9 @@
   color: #FFFFFF !important;
 }
 
+.white-text.shadow-text {
+    text-shadow: 2px 1px 0.5px #000
+}
 .transparent {
   background-color: transparent !important;
 }
