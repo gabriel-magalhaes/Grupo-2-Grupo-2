@@ -12,18 +12,18 @@ import java.util.ArrayList;
  * @author Marcele
  */
 public class Alimentacao {
-    public int id;
+    public long id;
     public ArrayList<Alimentos> emagrecer;
     public ArrayList<Alimentos> musculo;
     public ArrayList<Alimentos> reeducacao;
     public ArrayList<Alimentos> cardiaco;
     public ArrayList<Alimentos> evitar;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
