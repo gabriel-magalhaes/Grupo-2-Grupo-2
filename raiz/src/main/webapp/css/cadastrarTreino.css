@@ -1,0 +1,59 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jun 15, 2016, 5:08:41 PM
+    Author     : Heydi
+*/
+.border-radius-btn{
+    border-radius: 20px;
+}
+.border-radius-container{
+    border-radius: 15px;
+}
+.padding-top-30px{
+    padding-top:30px;
+}
+.padding-left-20px{
+    padding-left: 20px;
+}
+
+.padding-right-50px{
+    padding-right: 50px;
+}
+.padding-left-50px{
+    padding-left: 50px;
+}
+.padding-botton-20px{
+    padding-top:20px;
+}
+.padding-container{
+    padding-right: 8px;
+    padding-top:8px;
+    padding-left:8px;
+    padding-bottom:8px;
+}
+
+.padding-botton{
+    padding-botton: 50px;
+}
+.container-raisInfo-register {
+    margin: 0 auto;
+    max-width: 1280px;
+    width: 90%;
+}
+@media only screen and (min-width: 601px) {
+    .container-raisInfo-register {
+        width: 50%;
+    }
+}
+@media only screen and (min-width: 993px) {
+    .container-raisInfo-register {
+        width: 45%;
+    }
+}
+
+
+
