@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>MaxMove Personal</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            jdks:
+            <h:inputText  value="#{jsfTreino.exercicio}"/><br></br>
+            Repeticao:
+            <h:inputText  value="#{jsfTreino.repeticao}" /><br></br>
+            Tipo de Treino:
+            <h:inputText  value="#{jsfTreino.tipo}" /><br></br>
+            <h:commandButton value="salvar" action="#{jsfTreino.salvar()}"></h:commandButton>
+        </h:form>
+    </h:body>
+</html>

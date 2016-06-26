@@ -9,7 +9,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import com.utfpr.entidades.Treino;
 import java.util.Collection;
-
+//
 /**
  *
  * @author Heydi
