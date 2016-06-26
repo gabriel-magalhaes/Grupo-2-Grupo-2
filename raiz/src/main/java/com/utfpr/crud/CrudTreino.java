@@ -15,6 +15,7 @@ import javax.persistence.Persistence;
  *
  * @author Heydi
  */
+
 public class CrudTreino {
 
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("max_move_unit");

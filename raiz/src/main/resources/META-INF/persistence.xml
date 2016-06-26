@@ -4,6 +4,7 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <jta-data-source/>
     <class>com.utfpr.entidades.Treino</class>
+    <class>com.utfpr.entidades.CadastroPersonal</class>
     <properties>
       <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver"/>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby:C:\Users\Heydi\Documents\NetBeans\database;create=true"/>

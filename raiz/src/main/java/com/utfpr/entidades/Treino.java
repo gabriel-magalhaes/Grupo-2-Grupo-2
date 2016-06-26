@@ -11,13 +11,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
+import javax.persistence.*;
+
 
 /**
  *
  * @author Heydi
  */
 @NamedQuery(name = "Treino.findAll", query = "SELECT t FROM Treino t")
-
 @Entity
 public class Treino implements Serializable {
 
