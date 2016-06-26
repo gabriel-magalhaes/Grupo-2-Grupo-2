@@ -6,15 +6,13 @@
 package com.utfpr.entidades;
 
 import java.io.Serializable;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  *
  * @author Heydi
  */
+@NamedQuery(name = "Treino.findAll", query = "SELECT t FROM Treino t")
 @Entity
 public class Treino implements Serializable {
 
