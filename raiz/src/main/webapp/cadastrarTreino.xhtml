@@ -7,21 +7,79 @@
     </h:head>
     <h:body>
         <h:form>
+            <h4> Treino para Emagrecer:</h4>
             Exercicio:
-            <h:inputText  value="#{jsfTreino.exercicio}"/><br></br>
+            <h:inputText  value="#{jsfTreino.exercicio1}"/>
             Repeticao:
-            <h:inputText  value="#{jsfTreino.repeticao}" /><br></br>
-            Tipo de Treino:
-            <h:inputText  value="#{jsfTreino.tipo}" /><br></br>
-            <h:commandButton value="salvar" action="#{jsfTreino.salvar()}"></h:commandButton>
+            <h:inputText  value="#{jsfTreino.repeticao1}"/><br></br>
+                
+            Exercicio:
+            <h:inputText  value="#{jsfTreino.exercicio2}"/>
+            Repeticao:
+            <h:inputText  value="#{jsfTreino.repeticao2}"/><br></br>
+                
+            Exercicio:
+            <h:inputText  value="#{jsfTreino.exercicio3}"/>
+            Repeticao:
+            <h:inputText  value="#{jsfTreino.repeticao3}"/><br></br>
+                
+            Exercicio:
+            <h:inputText  value="#{jsfTreino.exercicio4}"/>
+            Repeticao:
+            <h:inputText  value="#{jsfTreino.repeticao4}"/><br></br>
+                
+            Exercicio:
+            <h:inputText  value="#{jsfTreino.exercicio5}"/>            
+            Repeticao:
+            <h:inputText  value="#{jsfTreino.repeticao5}"/><br></br>
+                
+            Exercicio:
+            <h:inputText  value="#{jsfTreino.exercicio6}"/>
+            Repeticao:
+            <h:inputText  value="#{jsfTreino.repeticao6}" /><br></br>
+                
+            <h:inputHidden  value="#{jsfTreino.tipo}" />  <br></br>
+            
+            <h:commandButton value="salvar" action="#{jsfTreino.salvar()}"> </h:commandButton>
         </h:form>
+              
         <h:form>
             <h:dataTable value="#{jsfTreino.all}" var="exer">
                 <h:column>
-                    <h:outputText value="#{exer.exercicio}"/>
+                    <h:outputText value="#{exer.exercicio1}"/>
                 </h:column>
                 <h:column>
-                    <h:outputText value="#{exer.repeticao}"/>
+                    <h:outputText value="#{exer.repeticao1}"/>
+                </h:column>
+                <h:column>
+                    <h:outputText value="#{exer.exercicio2}"/>
+                </h:column>
+                <h:column>
+                    <h:outputText value="#{exer.repeticao2}"/>
+                </h:column>
+                <h:column>
+                    <h:outputText value="#{exer.exercicio3}"/>
+                </h:column>
+                <h:column>
+                    <h:outputText value="#{exer.repeticao3}"/>
+                </h:column>
+                <h:column>
+                    <h:outputText value="#{exer.exercicio4}"/>
+                </h:column>
+                <h:column>
+                    <h:outputText value="#{exer.repeticao4}"/>
+                </h:column>
+                <h:column>
+                    <h:outputText value="#{exer.exercicio5}"/>
+                </h:column>
+                <h:column>
+                    <h:outputText value="#{exer.repeticao5}"/>
+                </h:column>
+                <h:column>
+                    <h:outputText value="#{exer.exercicio6}"/>
+                </h:column>
+                <h:column>
+                    <h:outputText value="#{exer.repeticao6}"/>
                 </h:column>
                 <h:column>
                     <h:outputText value="#{exer.tipo}"/>
