@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>MaxMove Heydi</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            Exercicio:
+            <h:inputText  value="#{jsfTreino.exercicio}"/><br></br>
+            Repeticao:
+            <h:inputText  value="#{jsfTreino.repeticao}" /><br></br>
+            Tipo de Treino:
+            <h:inputText  value="#{jsfTreino.tipo}" /><br></br>
+            <h:commandButton value="salvar" action="#{jsfTreino.salvar()}"></h:commandButton>
+        </h:form>
+        <h:form>
+            <h:dataTable value="#{jsfTreino.all}" var="exer">
+                <h:column>
+                    <h:outputText value="#{exer.exercicio}"/>
+                </h:column>
+                <h:column>
+                    <h:outputText value="#{exer.repeticao}"/>
+                </h:column>
+                <h:column>
+                    <h:outputText value="#{exer.tipo}"/>
+                </h:column>
+            </h:dataTable>
+        </h:form>
+    </h:body>
+</html>
+

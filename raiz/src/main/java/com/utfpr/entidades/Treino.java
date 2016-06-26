@@ -5,47 +5,76 @@
  */
 package com.utfpr.entidades;
 
-import java.util.ArrayList;
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
  *
- * @author Heydi Miura Machado
+ * @author Heydi
  */
-public class Treino {
-    public int id;
-    public ArrayList<Exercicio> emagrecer;
-    public ArrayList<Exercicio> musculo;
-    public ArrayList<Exercicio> cardiaco;
-    
-    public int getId() {
+@Entity
+public class Treino implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    public String exercicio;
+    public String repeticao;
+    public int tipo;
+
+    public Long getId() {
         return id;
     }
 
-    public ArrayList<Exercicio> getEmagrecer() {
-        return emagrecer;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public void setEmagrecer(ArrayList<Exercicio> emagrecer) {
-        this.emagrecer = emagrecer;
+    public String getExercicio() {
+        return exercicio;
     }
 
-    public ArrayList<Exercicio> getMusculo() {
-        return musculo;
+    public void setExercicio(String exercicio) {
+        this.exercicio = exercicio;
     }
 
-    public void setMusculo(ArrayList<Exercicio> musculo) {
-        this.musculo = musculo;
+    public String getRepeticao() {
+        return repeticao;
     }
 
-    public ArrayList<Exercicio> getCardiaco() {
-        return cardiaco;
+    public void setRepeticao(String repeticao) {
+        this.repeticao = repeticao;
     }
 
-    public void setCardiaco(ArrayList<Exercicio> cardiaco) {
-        this.cardiaco = cardiaco;
+    public int getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(int tipo) {
+        this.tipo = tipo;
+    }
+
+   
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Treino)) {
+            return false;
+        }
+        Treino other = (Treino) object;
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "com.utfpr.entidades.Treino[ id=" + id + " ]";
     }
     
-    
-    
-
 }
