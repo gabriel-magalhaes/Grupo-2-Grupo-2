@@ -5,12 +5,18 @@
  */
 package com.utfpr.entidades;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 /**
  *
  * @author Tamires
  */
 public class Endereco {
-    public long id;
+       
+    @Id
+    @GeneratedValue
+    public Long id;
     public String rua;
     public int numero;
     public String bairro;
@@ -20,11 +26,11 @@ public class Endereco {
     public String pais;
     public String complemento;
     
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

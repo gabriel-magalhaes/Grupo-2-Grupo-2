@@ -6,26 +6,31 @@
 package com.utfpr.entidades;
 
 import java.util.Date;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 /**
  *
  * @author Tamires
  */
-public class Pessoa {
-    public long id;
+public class Pessoa extends Endereco {
+    
+    @Id
+    @GeneratedValue
+    public Long id;
     public String nome;
-    public Endereco end;
     public String email;
     public String sexo;
     public String telefone;
     public String celular;
+    public String nascimentoPersonal;
     public Date nascimento;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -35,14 +40,6 @@ public class Pessoa {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public Endereco getEnd() {
-        return end;
-    }
-
-    public void setEnd(Endereco end) {
-        this.end = end;
     }
 
     public String getEmail() {
@@ -77,6 +74,14 @@ public class Pessoa {
         this.celular = celular;
     }
 
+    public String getNascimentoPersonal() {
+        return nascimentoPersonal;
+    }
+
+    public void setNascimentoPersonal(String nascimentoPersonal) {
+        this.nascimentoPersonal = nascimentoPersonal;
+    }
+
     public Date getNascimento() {
         return nascimento;
     }
@@ -84,5 +89,7 @@ public class Pessoa {
     public void setNascimento(Date nascimento) {
         this.nascimento = nascimento;
     }
+
+    
     
 }

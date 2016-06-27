@@ -7,7 +7,35 @@
     </h:head>
     <h:body>
          <h:form>
-            <h4> Cadastro Personal</h4>
+             <h4> Cadastro Personal</h4>
+            Nome:
+            <h:inputText  value="#{jsfPersonal.nome}"/>
+            Nascimento:
+            <h:inputText  value="#{jsfPersonal.nascimentoPersonal}"/>
+            Sexo:
+            <h:inputText  value="#{jsfPersonal.sexo}"/>
+            Rua:
+            <h:inputText  value="#{jsfPersonal.rua}"/>
+            Numero:
+            <h:inputText  value="#{jsfPersonal.numero}"/>
+            Bairro:
+            <h:inputText  value="#{jsfPersonal.bairro}"/>
+            Complemento:
+            <h:inputText  value="#{jsfPersonal.complemento}"/>
+            Cidade:
+            <h:inputText  value="#{jsfPersonal.cidade}"/>
+            Estado:
+            <h:inputText  value="#{jsfPersonal.estado}"/>
+            CEP:
+            <h:inputText  value="#{jsfPersonal.cep}"/>
+            Pais:
+            <h:inputText  value="#{jsfPersonal.pais}"/>
+            Telefone (residencial):
+            <h:inputText  value="#{jsfPersonal.telefone}"/>
+            Celular:
+            <h:inputText  value="#{jsfPersonal.celular}"/>
+            Email:
+            <h:inputText  value="#{jsfPersonal.email}"/>
             Especialidade:
             <h:inputText  value="#{jsfPersonal.especialidade}"/>
             Pagina:
@@ -18,6 +46,48 @@
         
          <h:form>
             <h:dataTable value="#{jsfPersonal.all}" var="pers">
+                <h:column>
+                    <h:outputText value="#{pers.nome}"/>
+                </h:column>
+                <h:column>
+                    <h:outputText value="#{pers.nascimentoPersonal}"/>
+                </h:column>
+                <h:column>
+                    <h:outputText value="#{pers.sexo}"/>
+                </h:column>
+                <h:column>
+                    <h:outputText value="#{pers.rua}"/>
+                </h:column>
+                <h:column>
+                    <h:outputText value="#{pers.numero}"/>
+                </h:column>
+                <h:column>
+                    <h:outputText value="#{pers.bairro}"/>
+                </h:column>
+                <h:column>
+                    <h:outputText value="#{pers.complemento}"/>
+                </h:column>
+                <h:column>
+                    <h:outputText value="#{pers.cidade}"/>
+                </h:column>
+                <h:column>
+                    <h:outputText value="#{pers.estado}"/>
+                </h:column>
+                <h:column>
+                    <h:outputText value="#{pers.cep}"/>
+                </h:column>
+                <h:column>
+                    <h:outputText value="#{pers.pais}"/>
+                </h:column>
+                <h:column>
+                    <h:outputText value="#{pers.telefone}"/>
+                </h:column>
+                <h:column>
+                    <h:outputText value="#{pers.celular}"/>
+                </h:column>
+                <h:column>
+                    <h:outputText value="#{pers.email}"/>
+                </h:column>
                 <h:column>
                     <h:outputText value="#{pers.especialidade}"/>
                 </h:column>

@@ -12,7 +12,7 @@ import javax.persistence.Entity;
 import java.io.Serializable;
 import com.utfpr.type.Tipo;
 import javax.persistence.NamedQuery;
-import java.net.URL;
+
 
 /**
  *
@@ -20,7 +20,7 @@ import java.net.URL;
  */
 @NamedQuery(name = "Personal.findAll", query = "SELECT p FROM Personal p")
 @Entity
-public class Personal implements Serializable {
+public class Personal extends Pessoa implements Serializable {
     
     
     private static final long serialVersionUID = 1L;
@@ -29,6 +29,7 @@ public class Personal implements Serializable {
     private Long id;
     public Tipo especialidade;
     public String pagina;
+    public String nome;
 
     public Long getId() {
         return id;
@@ -38,6 +39,14 @@ public class Personal implements Serializable {
         this.id = id;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+     
     public Tipo getEspecialidade() {
         return especialidade;
     }
