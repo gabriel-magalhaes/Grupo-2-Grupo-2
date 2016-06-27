@@ -20,7 +20,7 @@ import javax.persistence.NamedQuery;
  */
 @NamedQuery(name = "Personal.findAll", query = "SELECT p FROM Personal p")
 @Entity
-public class Personal extends Pessoa implements Serializable {
+public class Personal implements Serializable {
     
     
     private static final long serialVersionUID = 1L;
@@ -30,6 +30,19 @@ public class Personal extends Pessoa implements Serializable {
     public Tipo especialidade;
     public String pagina;
     public String nome;
+    public String email;
+    public String sexo;
+    public String telefone;
+    public String celular;
+    public String nascimentoPersonal;
+    public String rua;
+    public int numero;
+    public String bairro;
+    public String cidade;
+    public String estado;
+    public int cep;
+    public String pais;
+    public String complemento;
 
     public Long getId() {
         return id;
@@ -39,14 +52,6 @@ public class Personal extends Pessoa implements Serializable {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-     
     public Tipo getEspecialidade() {
         return especialidade;
     }
@@ -63,6 +68,120 @@ public class Personal extends Pessoa implements Serializable {
         this.pagina = pagina;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getCelular() {
+        return celular;
+    }
+
+    public void setCelular(String celular) {
+        this.celular = celular;
+    }
+
+    public String getNascimentoPersonal() {
+        return nascimentoPersonal;
+    }
+
+    public void setNascimentoPersonal(String nascimentoPersonal) {
+        this.nascimentoPersonal = nascimentoPersonal;
+    }
+
+    public String getRua() {
+        return rua;
+    }
+
+    public void setRua(String rua) {
+        this.rua = rua;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public int getCep() {
+        return cep;
+    }
+
+    public void setCep(int cep) {
+        this.cep = cep;
+    }
+
+    public String getPais() {
+        return pais;
+    }
+
+    public void setPais(String pais) {
+        this.pais = pais;
+    }
+
+    public String getComplemento() {
+        return complemento;
+    }
+
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
+    }
+    
+    
+     
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set

@@ -8,7 +8,6 @@ package com.utfpr.web;
 import com.utfpr.entidades.Personal;
 import com.utfpr.type.Tipo;
 import java.util.Collection;
-import java.util.Date;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.persistence.GeneratedValue;

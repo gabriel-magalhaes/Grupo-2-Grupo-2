@@ -5,6 +5,8 @@
     <!--<jta-data-source/>-->
     <class>com.utfpr.entidades.Treino</class>
     <class>com.utfpr.entidades.Personal</class>
+    <class>com.utfpr.entidades.CalculoIMC</class>
+    <class>com.utfpr.entidades.Imc</class>
     <properties>
       <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver"/>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby:C:\Users\Tamires\Documents\MaxMoveBD\database;create=true"/>
