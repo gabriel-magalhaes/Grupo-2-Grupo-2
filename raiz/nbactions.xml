@@ -3,8 +3,6 @@
         <action>
             <actionName>CUSTOM-Limpar e Construir</actionName>
             <displayName>Limpar e Construir</displayName>
-            <actionName>CUSTOM-limpar e construir</actionName>
-            <displayName>limpar e construir</displayName>
             <goals>
                 <goal>clean</goal>
                 <goal>compile</goal>
