@@ -9,7 +9,9 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import com.utfpr.entidades.Treino;
 import java.util.Collection;
+import javax.faces.context.FacesContext;
 //
+
 /**
  *
  * @author Heydi
@@ -18,7 +20,7 @@ import java.util.Collection;
 @RequestScoped
 public class JsfTreino {
 
-    public int id;
+    public Long id;
     public String exercicio1;
     public String repeticao1;
     public String exercicio2;
@@ -33,11 +35,11 @@ public class JsfTreino {
     public String repeticao6;
     public int tipo;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -136,8 +138,6 @@ public class JsfTreino {
     public void setRepeticao6(String repeticao6) {
         this.repeticao6 = repeticao6;
     }
-    
-
 
     public int getTipo() {
         return tipo;
@@ -162,8 +162,62 @@ public class JsfTreino {
         exer.setRepeticao5(repeticao5);
         exer.setExercicio6(exercicio6);
         exer.setRepeticao6(repeticao6);
+
+        /*
+        String tipoTreino = FacesContext.getCurrentInstance().
+                getExternalContext().getRequestParameterMap().get("hidden1");
+        tipo = Integer.parseInt(tipoTreino);
+        */
         exer.setTipo(tipo);
+
         new com.utfpr.crud.CrudTreino().persist(exer);
+    }
+  
+
+    public void remove(com.utfpr.entidades.Treino trei) {
+        new com.utfpr.crud.CrudTreino().remove(trei);
+
+    }
+
+    public void merge() {
+        com.utfpr.entidades.Treino trei;
+        trei=new com.utfpr.entidades.Treino();
+       
+        trei.setId(id);
+        trei.setExercicio1(exercicio1);
+        trei.setRepeticao1(repeticao1);
+        trei.setExercicio2(exercicio2);
+        trei.setRepeticao2(repeticao2);
+        trei.setExercicio3(exercicio3);
+        trei.setRepeticao3(repeticao3);
+        trei.setExercicio4(exercicio4);
+        trei.setRepeticao4(repeticao4);
+        trei.setExercicio5(exercicio5);
+        trei.setRepeticao5(repeticao5);
+        trei.setExercicio6(exercicio6);
+        trei.setRepeticao6(repeticao6);
+        trei.setTipo(tipo);
+        
+        new com.utfpr.crud.CrudTreino().update(trei);
+
+    }
+
+    public void load_data(com.utfpr.entidades.Treino trei) {
+        this.id = trei.getId();
+        this.exercicio1 = trei.getExercicio1();
+        this.exercicio2 = trei.getExercicio2();
+        this.exercicio3 = trei.getExercicio3();
+        this.exercicio4 = trei.getExercicio4();
+        this.exercicio5 = trei.getExercicio5();
+        this.exercicio6 = trei.getExercicio6();
+        this.repeticao1 = trei.getRepeticao1();
+        this.repeticao2 = trei.getRepeticao2();
+        this.repeticao3 = trei.getRepeticao3();
+        this.repeticao4 = trei.getRepeticao4();
+        this.repeticao5 = trei.getRepeticao5();
+        this.repeticao6 = trei.getRepeticao6();
+        this.tipo=trei.getTipo();
+
     }
 
     public Collection<Treino> getAll() {
