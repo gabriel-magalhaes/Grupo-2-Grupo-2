@@ -8,12 +8,18 @@
     <h:body>
         <h:form>
             Nome 1:
-            <h:inputText  value="#{jsfDieta.nome1}"/><br></br>
-            Tipo 1:
-            <h:inputText  value="#{jsfDieta.tipo}" /><br></br>
+            <h:inputText  value="#{jsfDieta.nome1}"/>
             Nome 2:
             <h:inputText  value="#{jsfDieta.nome2}"/><br></br>
-            Tipo 2:
+            Nome 3:
+            <h:inputText  value="#{jsfDieta.nome3}"/>
+            Nome 4:
+            <h:inputText  value="#{jsfDieta.nome4}"/><br></br>
+            Nome 5:
+            <h:inputText  value="#{jsfDieta.nome5}"/>
+            Nome 6:
+            <h:inputText  value="#{jsfDieta.nome6}"/><br></br>
+            Tipo:
             <h:inputText  value="#{jsfDieta.tipo}" /><br></br>
 
             
@@ -25,12 +31,23 @@
                     <h:outputText value="#{dieta.nome1}"/>
                 </h:column>
                 <h:column>
-                    <h:outputText value="#{dieta.tipo}"/>
-                </h:column>
-                <h:column>
                     <h:outputText value="#{dieta.nome2}"/>
                 </h:column>
-               
+                <h:column>
+                    <h:outputText value="#{dieta.nome3}"/>
+                </h:column>
+                <h:column>
+                    <h:outputText value="#{dieta.nome4}"/>
+                </h:column>
+                <h:column>
+                    <h:outputText value="#{dieta.nome5}"/>
+                </h:column>
+                <h:column>
+                    <h:outputText value="#{dieta.nome6}"/>
+                </h:column>
+                <h:column>
+                    <h:outputText value="#{dieta.tipo}"/>
+                </h:column>
 
             </h:dataTable>
         </h:form>

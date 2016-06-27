@@ -27,6 +27,10 @@ public class Alimentos implements Serializable {
     private Long id;
     public String nome1;
     public String nome2;
+    public String nome3;
+    public String nome4;
+    public String nome5;
+    public String nome6;
     public Tipo tipo;
 
     public Long getId() {
@@ -53,12 +57,44 @@ public class Alimentos implements Serializable {
         this.nome2 = nome2;
     }
 
+    public String getNome3() {
+        return nome3;
+    }
+
+    public void setNome3(String nome3) {
+        this.nome3 = nome3;
+    }
+
+    public String getNome4() {
+        return nome4;
+    }
+
+    public void setNome4(String nome4) {
+        this.nome4 = nome4;
+    }
+
+    public String getNome5() {
+        return nome5;
+    }
+
+    public void setNome5(String nome5) {
+        this.nome5 = nome5;
+    }
+
+    public String getNome6() {
+        return nome6;
+    }
+
+    public void setNome6(String nome6) {
+        this.nome6 = nome6;
+    }
+
 
     public Tipo getTipo() {
         return tipo;
     }
 
-    public void setTipo(Tipo tipo1) {
+    public void setTipo(Tipo tipo) {
         this.tipo = tipo;
     }
 
