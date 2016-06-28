@@ -5,8 +5,16 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>MaxMove Dieta</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+
+        <!-- CSS  -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     </h:head>
     <h:body>
+        <div class="section">
         <h:form>
             Nome 1:
             <h:inputText  value="#{jsfDieta.nome1}"/>
@@ -20,18 +28,19 @@
             <h:inputText  value="#{jsfDieta.nome5}"/>
             Nome 6:
             <h:inputText  value="#{jsfDieta.nome6}"/><br></br>
-             <input type="hidden" name="hidden1" value="1" />
-           
+            <input type="hidden" name="hidden1" value="1" />
+
             <h:selectOneMenu value="#{jsfDieta.tipo}">
                 <f:selectItem itemValue="TIPO1" itemLabel="Emagrecimento" />
                 <f:selectItem itemValue="TIPO2" itemLabel="Hipertrofia" />	
-                <f:selectItem itemValue="TIPO3" itemLabel="Cardíaco" />
+                <f:selectItem itemValue="TIPO3" itemLabel="CardÃ­aco" />
             </h:selectOneMenu>
-       
+
             <h:commandButton value="Salvar" action="#{jsfDieta.salvar()}"></h:commandButton>
             <h:commandButton value="Alterar" action="#{jsfDieta.merge()}"> </h:commandButton>
-   
+
         </h:form>
+        </div>
         <h:form>
             <h:dataTable value="#{jsfDieta.all}" var="dieta">
                 <h:column>
