@@ -1,11 +1,50 @@
-<?xml version='1.0' encoding='UTF-8' ?>
+<?xml version='1.0' encoding='ISO-8859-1' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Cadastrar Personal</title>
+        <title>MaxMove Personal</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+        
+        <script type="text/javascript" src="js/javascript.js"></script>
+        
+        <!-- CSS  -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     </h:head>
     <h:body>
+    <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+        <a id="logo-container" href="#" class="brand-logo"><img src="logo.jpg" /></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Login</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="#">Navbar Link </a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br/><br/>
+        <h1 class="header center light">MaxMove</h1>
+        <div class="row center">
+          <h5 class="header col s12 light">Seja um Personal na MaxMove</h5>
+        </div>
+        <br/><br/>
+      </div>
+    </div>
+    <div class="parallax"><img src="img10.jpg" alt="Unsplashed background img 1"/></div>
+  </div>
+  <div class="container">
+    <div class="section">
          <h:form>
              <h4> Cadastro Personal</h4>
             Nome:
@@ -36,17 +75,23 @@
             <h:inputText  value="#{jsfPersonal.celular}"/>
             Email:
             <h:inputText  value="#{jsfPersonal.email}"/><br></br><br></br>
-            Especialidade: <br></br>
-            TIPO1 - Emagrecimento <br></br> 
-            TIPO2 - Ganhar Musculo <br></br>
-            TIPO3 - Cardiaco 
-            <h:inputText  value="#{jsfPersonal.especialidade}"/>
+            
+            Especialidade:
+            <h:selectOneRadio value="#{jsfPersonal.especialidade}">
+                <f:selectItem itemValue="TIPO1" itemLabel="Emagrecimento" />
+                <f:selectItem itemValue="TIPO2" itemLabel="Hipertrofia" />
+                <f:selectItem itemValue="TIPO3" itemLabel="Cossfit" />
+            </h:selectOneRadio>
+           
             Pagina Pessoal (Ex: Facebook, Twiter, Linkedin, entre outros):
             <h:inputText  value="#{jsfPersonal.pagina}"/><br></br>
             <br></br>
-            <h:commandButton value="salvar" action="#{jsfPersonal.salvar()}"> </h:commandButton>
+           
+            <h:commandButton value="Salvar" action="#{jsfPersonal.salvar()}"></h:commandButton>
+            <h:commandButton value="Alterar" action="#{jsfPersonal.merge()}"> </h:commandButton>
+            
          </h:form>
-        
+        </div>
          <h:form>
             <h:dataTable value="#{jsfPersonal.all}" var="pers">
                 <h:column>
@@ -97,7 +142,25 @@
                 <h:column>
                     <h:outputText value="#{pers.pagina}"/>
                 </h:column>
+                
+                <h:column>
+                    <h:commandButton value="Remover" action="#{jsfPersonal.remove(pers)}"> </h:commandButton>
+                </h:column>
+                 <h:column>
+                    <h:commandButton id="load_data" onclick="desabilitarSalvar();" value="Editar" action="#{jsfPersonal.load_data(pers)}"> </h:commandButton>
+                </h:column>
+                
+                
            </h:dataTable>
         </h:form>
+      </div>
+        
+         <!--  Scripts-->
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="js/materialize.js"></script>
+        <script src="js/init.js"></script>
+        <script type="text/javascript" src="js/javascript.js"></script>
+
+        
     </h:body>
 </html>

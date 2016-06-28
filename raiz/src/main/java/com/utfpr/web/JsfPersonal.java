@@ -199,7 +199,56 @@ public class JsfPersonal {
         
         new com.utfpr.crud.CrudPersonal().persist(pers);
     }
+    
+    public void remove(com.utfpr.entidades.Personal prof) {
+        new com.utfpr.crud.CrudPersonal().remove(prof);
 
+    }
+
+    public void merge() {
+        com.utfpr.entidades.Personal prof;
+        prof=new com.utfpr.entidades.Personal();
+        prof.setId(id);
+        prof.setEspecialidade(especialidade);
+        prof.setPagina(pagina); 
+        prof.setNome(nome);
+        prof.setEmail(email);
+        prof.setSexo(sexo);
+        prof.setTelefone(telefone);
+        prof.setCelular(celular);
+        prof.setNascimentoPersonal(nascimentoPersonal);
+        prof.setRua(rua);
+        prof.setNumero(numero);
+        prof.setBairro(bairro);
+        prof.setCidade(cidade);
+        prof.setEstado(estado);
+        prof.setCep(cep);
+        prof.setPais(pais);
+        prof.setComplemento(complemento);
+        new com.utfpr.crud.CrudPersonal().update(prof);
+
+    }
+
+    public void load_data(com.utfpr.entidades.Personal prof) {
+        this.id = prof.getId();
+        this.especialidade = prof.getEspecialidade();
+        this.pagina = prof.getPagina();
+        this.nome = prof.getNome();
+        this.email = prof.getEmail();
+        this.sexo = prof.getSexo();
+        this.telefone = prof.getTelefone();
+        this.celular = prof.getCelular();
+        this.nascimentoPersonal = prof.getNascimentoPersonal();
+        this.rua = prof.getRua();
+        this.numero = prof.getNumero();
+        this.bairro = prof.getBairro();
+        this.cidade = prof.getCidade();
+        this.estado=prof.getEstado();
+        this.cep=prof.getCep();
+        this.pais=prof.getPais();
+        this.complemento=prof.getComplemento();
+}
+    
     public Collection<Personal> getAll() {
         return new com.utfpr.crud.CrudPersonal().getAll();
     }

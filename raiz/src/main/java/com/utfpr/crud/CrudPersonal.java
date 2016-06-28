@@ -33,6 +33,54 @@ public class CrudPersonal {
         }
     }
     
+    public void remove(com.utfpr.entidades.Personal profissional) {
+        EntityManager em = emf.createEntityManager();
+        try {
+            em.getTransaction().begin();
+            com.utfpr.entidades.Personal prof;
+            prof=em.find(com.utfpr.entidades.Personal.class, profissional.getId());
+            em.remove(prof);
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", e);
+            em.getTransaction().rollback();
+        } finally {
+            em.close();
+        }
+    }
+    
+      public void update(com.utfpr.entidades.Personal profissional) {
+        EntityManager em = emf.createEntityManager();
+        try {
+            em.getTransaction().begin();
+            com.utfpr.entidades.Personal prof;
+            prof=em.find(com.utfpr.entidades.Personal.class, profissional.getId());
+            prof.setEspecialidade(profissional.getEspecialidade());
+            prof.setPagina(profissional.getPagina());
+            prof.setNome(profissional.getNome());
+            prof.setEmail(profissional.getEmail());
+            prof.setSexo(profissional.getSexo());
+            prof.setTelefone(profissional.getTelefone());
+            prof.setCelular(profissional.getCelular());
+            prof.setNascimentoPersonal(profissional.getNascimentoPersonal());
+            prof.setRua(profissional.getRua());
+            prof.setNumero(profissional.getNumero());
+            prof.setBairro(profissional.getBairro());
+            prof.setCidade(profissional.getCidade());
+            prof.setEstado(profissional.getEstado());
+            prof.setCep(profissional.getCep());
+            prof.setPais(profissional.getPais());
+            prof.setComplemento(profissional.getComplemento());
+            em.merge(prof);
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", e);
+            em.getTransaction().rollback();
+        } finally {
+            em.close();
+        }
+    }
+      
     public java.util.Collection<com.utfpr.entidades.Personal> getAll() {
         EntityManager em = emf.createEntityManager();
         try {
