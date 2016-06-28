@@ -74,6 +74,6 @@ public class Imc extends Cliente{
                                 return "Obeso";
                 }
                 
-                return "Valor não encontrado";
+                return "Valor nao encontrado";
     }
 }

@@ -1,9 +1,16 @@
 package com.utfpr.entidades;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 /**
  * Created by laisa on 12/06/2016.
  */
+@Entity
 public class RiscoCardiaco {
+    @Id
+    @GeneratedValue
     private long id;
     private int idade;
     private int sexo;

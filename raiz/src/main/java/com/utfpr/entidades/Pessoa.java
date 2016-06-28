@@ -5,34 +5,30 @@
  */
 package com.utfpr.entidades;
 
-import java.util.Date;
-import javax.persistence.GeneratedValue;
+import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import java.util.Date;
 
 /**
  *
  * @author Tamires
  */
-public class Pessoa extends Endereco {
-    
+@Entity
+public class Pessoa {
     @Id
-    @GeneratedValue
-    public Long id;
-    public String nome;
     public String email;
+    public String nome;
+    @OneToOne
+    public Endereco end;
+    public String senha;
     public String sexo;
     public String telefone;
     public String celular;
     public String nascimentoPersonal;
     public Date nascimento;
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getNome() {
         return nome;
@@ -40,6 +36,14 @@ public class Pessoa extends Endereco {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public Endereco getEnd() {
+        return end;
+    }
+
+    public void setEnd(Endereco end) {
+        this.end = end;
     }
 
     public String getEmail() {
@@ -90,6 +94,11 @@ public class Pessoa extends Endereco {
         this.nascimento = nascimento;
     }
 
-    
-    
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
 }

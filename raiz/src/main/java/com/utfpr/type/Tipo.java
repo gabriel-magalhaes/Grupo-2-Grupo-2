@@ -15,7 +15,7 @@ package com.utfpr.type;
     /**
  * TIPO1: Emagrecer 
  * TIPO2: Musculo
- * TIPO3: Cardíaco
+ * TIPO3: Cardiaco
  */
     
 }

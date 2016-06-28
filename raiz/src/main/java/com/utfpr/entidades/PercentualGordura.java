@@ -43,7 +43,7 @@ public class PercentualGordura extends Cliente {
                   return "MUITO BOM";
               }
               else if(percentual>= 14.02 && percentual <=17.5){
-                  return "SAUDÁVEL";
+                  return "SAUDAVEL";
               }
               else if(percentual>= 17.6 && percentual <=22.4){
                   return "SOBREPESO";
@@ -65,7 +65,7 @@ public class PercentualGordura extends Cliente {
                   return "MUITO BOM";
               }
               else if(percentual>=17.6 && percentual <=20.6){
-                  return "SAUDÁVEL";
+                  return "SAUDAVEL";
               }
               else if(percentual>=20.7 && percentual <=24.2){
                   return "SOBREPESO";
@@ -88,7 +88,7 @@ public class PercentualGordura extends Cliente {
                   return "MUITO BOM";
               }
               else if(percentual>=19.7 && percentual <=22.5){
-                  return "SAUDÁVEL";
+                  return "SAUDAVEL";
               }
               else if(percentual>=22.6 && percentual <=26.2){
                   return "SOBREPESO";
@@ -111,7 +111,7 @@ public class PercentualGordura extends Cliente {
                   return "MUITO BOM";
               }
               else if(percentual>=21.3 && percentual <=24.2){
-                  return "SAUDÁVEL";
+                  return "SAUDAVEL";
               }
               else if(percentual>=24.3 && percentual <=27.6){
                   return "SOBREPESO";
@@ -134,7 +134,7 @@ public class PercentualGordura extends Cliente {
                   return "MUITO BOM";
               }
               else if(percentual>=22.1 && percentual <=25.0){
-                  return "SAUDÁVEL";
+                  return "SAUDAVEL";
               }
               else if(percentual>=25.1 && percentual <=28.4){
                   return "SOBREPESO";
@@ -165,7 +165,7 @@ public class PercentualGordura extends Cliente {
                   return "MUITO BOM";
               }
               else if(percentual>= 20.6 && percentual <=23.8){
-                  return "SAUDÁVEL";
+                  return "SAUDAVEL";
               }
               else if(percentual>= 23.9 && percentual <=27.6){
                   return "SOBREPESO";
@@ -187,7 +187,7 @@ public class PercentualGordura extends Cliente {
                   return "MUITO BOM";
               }
               else if(percentual>=21.9 && percentual <=24.8){
-                  return "SAUDÁVEL";
+                  return "SAUDAVEL";
               }
               else if(percentual>=24.9 && percentual <=30.0){
                   return "SOBREPESO";
@@ -210,7 +210,7 @@ public class PercentualGordura extends Cliente {
                   return "MUITO BOM";
               }
               else if(percentual>=25.2 && percentual <=28.3){
-                  return "SAUDÁVEL";
+                  return "SAUDAVEL";
               }
               else if(percentual>=28.4 && percentual <=32.1){
                   return "SOBREPESO";
@@ -233,7 +233,7 @@ public class PercentualGordura extends Cliente {
                   return "MUITO BOM";
               }
               else if(percentual>=28.7 && percentual <=32.5){
-                  return "SAUDÁVEL";
+                  return "SAUDAVEL";
               }
               else if(percentual>=32.6 && percentual <=35.6){
                   return "SOBREPESO";
@@ -256,7 +256,7 @@ public class PercentualGordura extends Cliente {
                   return "MUITO BOM";
               }
               else if(percentual>=29.6 && percentual <=32.8){
-                  return "SAUDÁVEL";
+                  return "SAUDAVEL";
               }
               else if(percentual>=32.9 && percentual <=36.7){
                   return "SOBREPESO";

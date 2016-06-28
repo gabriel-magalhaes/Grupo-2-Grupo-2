@@ -5,6 +5,7 @@
  */
 package com.utfpr.entidades;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
@@ -12,25 +13,25 @@ import javax.persistence.Id;
  *
  * @author Tamires
  */
+@Entity
 public class Endereco {
-       
     @Id
     @GeneratedValue
-    public Long id;
+    public long id;
     public String rua;
     public int numero;
     public String bairro;
     public String cidade;
     public String estado;
-    public int cep;
+    public long cep;
     public String pais;
     public String complemento;
     
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -74,11 +75,11 @@ public class Endereco {
         this.estado = estado;
     }
 
-    public int getCep() {
+    public long getCep() {
         return cep;
     }
 
-    public void setCep(int cep) {
+    public void setCep(long cep) {
         this.cep = cep;
     }
 
