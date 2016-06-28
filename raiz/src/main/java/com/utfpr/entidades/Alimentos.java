@@ -23,7 +23,7 @@ public class Alimentos implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     public String nome1;
     public String nome2;
@@ -89,7 +89,6 @@ public class Alimentos implements Serializable {
         this.nome6 = nome6;
     }
 
-
     public Tipo getTipo() {
         return tipo;
     }
@@ -98,7 +97,9 @@ public class Alimentos implements Serializable {
         this.tipo = tipo;
     }
 
+    
 
+   
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set

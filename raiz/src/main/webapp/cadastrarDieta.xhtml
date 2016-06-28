@@ -4,45 +4,79 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>MaxMove Dieta</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>DIETA</title>
+       <script type="text/javascript" src="js/javascript.js"></script>
+       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-
+        
+        <script type="text/javascript" src="js/javascript.js"></script>
+        
         <!-- CSS  -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
         <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
         <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     </h:head>
     <h:body>
-        <div class="section">
-        <h:form>
-            Nome 1:
-            <h:inputText  value="#{jsfDieta.nome1}"/>
-            Nome 2:
-            <h:inputText  value="#{jsfDieta.nome2}"/><br></br>
-            Nome 3:
-            <h:inputText  value="#{jsfDieta.nome3}"/>
-            Nome 4:
-            <h:inputText  value="#{jsfDieta.nome4}"/><br></br>
-            Nome 5:
-            <h:inputText  value="#{jsfDieta.nome5}"/>
-            Nome 6:
-            <h:inputText  value="#{jsfDieta.nome6}"/><br></br>
-            <input type="hidden" name="hidden1" value="1" />
+            <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+        <a id="logo-container" href="#" class="brand-logo"><img src="logo.jpg" /></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Login</a></li>
+      </ul>
 
-            <h:selectOneMenu value="#{jsfDieta.tipo}">
-                <f:selectItem itemValue="TIPO1" itemLabel="Emagrecimento" />
-                <f:selectItem itemValue="TIPO2" itemLabel="Hipertrofia" />	
-                <f:selectItem itemValue="TIPO3" itemLabel="Cardíaco" />
-            </h:selectOneMenu>
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="#"></a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
 
-            <h:commandButton value="Salvar" action="#{jsfDieta.salvar()}"></h:commandButton>
-            <h:commandButton value="Alterar" action="#{jsfDieta.merge()}"> </h:commandButton>
-
-        </h:form>
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br/><br/>
+        <h1 class="header center white-text shadow-text">MaxMove</h1>
+        <div class="row center">
+          <h5 class="header col s12 white-text shadow-text">Cadastre novas dietas!</h5>
         </div>
-        <h:form>
+        <br/><br/>
+      </div>
+    </div>
+    <div class="parallax"><img src="img2.jpg" alt="Dietas"/></div>
+  </div>
+  <div class="container">
+    <div class="section">
+        <h:form id="emagrecer">
+            <h4> Cadastre um novo tipo de dieta:</h4>
+            Alimento 1:
+            <h:inputText  value="#{jsfDieta.nome1}"/>
+            Alimento 2:
+            <h:inputText  value="#{jsfDieta.nome2}"/><br></br>
+            Alimento 3:
+            <h:inputText  value="#{jsfDieta.nome3}"/>
+            Alimento 4:
+            <h:inputText  value="#{jsfDieta.nome4}"/><br></br>
+            Alimento 5:
+            <h:inputText  value="#{jsfDieta.nome5}"/>
+            Alimento 6:
+            <h:inputText  value="#{jsfDieta.nome6}"/><br></br>
+            
+            <h:inputHidden value="#{jsfDieta.id}"/>
+                  
+             Especialidade:
+            <h:selectOneRadio value="#{jsfDieta.tipo}">
+                <f:selectItem itemValue="TIPO1" itemLabel="Emagrecimento" />
+                <f:selectItem itemValue="TIPO2" itemLabel="Hipertrofia" />
+                <f:selectItem itemValue="TIPO3" itemLabel="Cardiaco" />
+            </h:selectOneRadio>
+       
+            <h:commandButton id="salvar" value="salvar" action="#{jsfDieta.salvar()}"> </h:commandButton>
+            <h:commandButton id="merge" value="Alterar" action="#{jsfDieta.merge()}"> </h:commandButton>
+        </h:form>
+          </div>
+        <h:form >
             <h:dataTable value="#{jsfDieta.all}" var="dieta">
+                
                 <h:column>
                     <h:outputText value="#{dieta.nome1}"/>
                 </h:column>
@@ -65,15 +99,19 @@
                     <h:outputText value="#{dieta.tipo}"/> 
                 </h:column>
                 <h:column>
-                    <h:commandButton value="X" action="#{jsfDieta.remove(dieta)}"> </h:commandButton>
+                    <h:commandButton id="remove" value="X" action="#{jsfDieta.remove(dieta)}"> </h:commandButton>
                 </h:column>
                 <h:column>
-                    <h:commandButton value="Editar" action="#{jsfDieta.load_data(dieta)}"> </h:commandButton>
+                    <h:commandButton id="load_data" onclick="desabilitarSalvar();" value="Editar" action="#{jsfDieta.load_data(dieta)}"> </h:commandButton>
                 </h:column>
-
             </h:dataTable>
         </h:form>
+      </div>
+        
+         <!--  Scripts-->
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="js/materialize.js"></script>
+        <script src="js/init.js"></script>
+        <script type="text/javascript" src="js/javascript.js"></script>
     </h:body>
 </html>
-
-
