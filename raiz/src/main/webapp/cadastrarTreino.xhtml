@@ -5,7 +5,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>TREINO</title>
-       <script type="text/javascript" src="js/javascript.js"></script>
+        <script type="text/javascript" src="js/javascript.js"></script>
     </h:head>
     <h:body>
         <h:form id="emagrecer">
@@ -34,20 +34,19 @@
             <h:inputText  value="#{jsfTreino.exercicio6}"/>
             Repeticao:
             <h:inputText  value="#{jsfTreino.repeticao6}" /><br></br>
-            <h:inputHidden value="#{jsfTreino.id}"/>
-                  
+            <h:inputHidden value="#{jsfTreino.id}" /><br></br>
+            
             <h:selectOneMenu value="#{jsfTreino.tipo}">
                 <f:selectItem itemValue="1" itemLabel="Perca de peso" />
-                <f:selectItem itemValue="2" itemLabel="Hipertrofia" />
-                <f:selectItem itemLabel="3" itemLabel="Cardiaco" />
-            </h:selectOneListbox>
+                <f:selectItem itemValue="2" itemLabel="Hipertrofia" />	
+                <f:selectItem itemValue="3" itemLabel="Cardíaco" />
+            </h:selectOneMenu>
        
-            <h:commandButton id="salvar" value="salvar" action="#{jsfTreino.salvar()}"> </h:commandButton>
-            <h:commandButton id="merge" value="Alterar" action="#{jsfTreino.merge()}"> </h:commandButton>
+            <h:commandButton value="salvar" action="#{jsfTreino.salvar()}"> </h:commandButton>
+            <h:commandButton value="Alterar" action="#{jsfTreino.merge()}"> </h:commandButton>
         </h:form>
         <h:form >
             <h:dataTable value="#{jsfTreino.all}" var="exer">
-                
                 <h:column>
                     <h:outputText value="#{exer.exercicio1}"/>
                 </h:column>
@@ -88,10 +87,10 @@
                     <h:outputText value="#{exer.tipo}"/> 
                 </h:column>
                 <h:column>
-                    <h:commandButton id="remove" value="X" action="#{jsfTreino.remove(exer)}"> </h:commandButton>
+                    <h:commandButton value="excluir" action="#{jsfTreino.remove(exer)}"> </h:commandButton>
                 </h:column>
                 <h:column>
-                    <h:commandButton id="load_data" onclick="desabilitarSalvar();" value="Editar" action="#{jsfTreino.load_data(exer)}"> </h:commandButton>
+                    <h:commandButton value="Editar" action="#{jsfTreino.load_data(exer)}"> </h:commandButton>
                 </h:column>
             </h:dataTable>
         </h:form>

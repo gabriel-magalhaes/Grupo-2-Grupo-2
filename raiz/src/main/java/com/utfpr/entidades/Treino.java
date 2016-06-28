@@ -5,14 +5,13 @@
  */
 package com.utfpr.entidades;
 
-import com.utfpr.type.Tipo;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
-import javax.persistence.*;
+
 
 
 /**
@@ -145,7 +144,6 @@ public class Treino implements Serializable {
         this.repeticao6 = repeticao6;
     }
 
-   
 
     public int getTipo() {
         return tipo;

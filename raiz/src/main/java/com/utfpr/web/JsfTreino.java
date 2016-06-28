@@ -12,7 +12,6 @@ import com.utfpr.type.Tipo;
 import java.util.Collection;
 import javax.faces.context.FacesContext;
 //
-
 /**
  *
  * @author Heydi
