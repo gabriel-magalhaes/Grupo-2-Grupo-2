@@ -1,11 +1,14 @@
 package com.utfpr.entidades;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Calendar;
 import java.util.Date;
 
 /**
  * Created by laisa on 12/06/2016.
  */
+@Entity
 public class Cliente extends Pessoa {
 
 

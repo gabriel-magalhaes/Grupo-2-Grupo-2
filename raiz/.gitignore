@@ -1,2 +1,4 @@
 .idea/
 MaxMove.iml
+database/
+derby.log
