@@ -8,6 +8,7 @@ package com.utfpr.web;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import com.utfpr.entidades.Treino;
+import com.utfpr.type.Tipo;
 import java.util.Collection;
 import javax.faces.context.FacesContext;
 //
@@ -182,7 +183,6 @@ public class JsfTreino {
     public void merge() {
         com.utfpr.entidades.Treino trei;
         trei=new com.utfpr.entidades.Treino();
-       
         trei.setId(id);
         trei.setExercicio1(exercicio1);
         trei.setRepeticao1(repeticao1);
@@ -196,8 +196,7 @@ public class JsfTreino {
         trei.setRepeticao5(repeticao5);
         trei.setExercicio6(exercicio6);
         trei.setRepeticao6(repeticao6);
-        trei.setTipo(tipo);
-        
+        trei.setTipo(tipo);        
         new com.utfpr.crud.CrudTreino().update(trei);
 
     }

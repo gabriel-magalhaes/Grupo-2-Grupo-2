@@ -109,6 +109,38 @@ public class JsfDieta {
         new com.utfpr.crud.CrudDieta().persist(dieta);
     }
 
+    public void remove(com.utfpr.entidades.Alimentos alim) {
+        new com.utfpr.crud.CrudDieta().remove(alim);
+
+    }
+
+    public void merge() {
+        com.utfpr.entidades.Alimentos alim;
+        alim=new com.utfpr.entidades.Alimentos();
+        alim.setId(id);
+        alim.setNome1(nome1);
+        alim.setNome2(nome2);
+        alim.setNome3(nome3);
+        alim.setNome4(nome4);
+        alim.setNome5(nome5);
+        alim.setNome6(nome6);
+        alim.setTipo(tipo);        
+        new com.utfpr.crud.CrudDieta().update(alim);
+
+    }
+
+    public void load_data(com.utfpr.entidades.Alimentos alim) {
+        this.id = alim.getId();
+        this.nome1 = alim.getNome1();
+        this.nome2 = alim.getNome2();
+        this.nome3 = alim.getNome3();
+        this.nome4 = alim.getNome4();
+        this.nome5 = alim.getNome5();
+        this.nome6 = alim.getNome6();
+        this.tipo=alim.getTipo();
+        
+
+    }
     public Collection<Alimentos> getAll() {
         return new com.utfpr.crud.CrudDieta().getAll();
     }

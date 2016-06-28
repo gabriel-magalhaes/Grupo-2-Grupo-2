@@ -5,6 +5,7 @@
  */
 package com.utfpr.entidades;
 
+import com.utfpr.type.Tipo;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

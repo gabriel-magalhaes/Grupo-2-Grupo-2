@@ -1,10 +1,11 @@
-<?xml version='1.0' encoding='UTF-8' ?>
+<?xml version='1.0' encoding='ISO-8859-1' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>TREINO</title>
+       <script type="text/javascript" src="js/javascript.js"></script>
     </h:head>
     <h:body>
         <h:form id="emagrecer">
@@ -13,45 +14,40 @@
             <h:inputText  value="#{jsfTreino.exercicio1}"/>
             Repeticao:
             <h:inputText  value="#{jsfTreino.repeticao1}"/><br></br>
-
             Exercicio:
             <h:inputText  value="#{jsfTreino.exercicio2}"/>
             Repeticao:
             <h:inputText  value="#{jsfTreino.repeticao2}"/><br></br>
-
             Exercicio:
             <h:inputText  value="#{jsfTreino.exercicio3}"/>
             Repeticao:
             <h:inputText  value="#{jsfTreino.repeticao3}"/><br></br>
-
             Exercicio:
             <h:inputText  value="#{jsfTreino.exercicio4}"/>
             Repeticao:
             <h:inputText  value="#{jsfTreino.repeticao4}"/><br></br>
-
             Exercicio:
             <h:inputText  value="#{jsfTreino.exercicio5}"/>            
             Repeticao:
             <h:inputText  value="#{jsfTreino.repeticao5}"/><br></br>
-
             Exercicio:
             <h:inputText  value="#{jsfTreino.exercicio6}"/>
             Repeticao:
             <h:inputText  value="#{jsfTreino.repeticao6}" /><br></br>
-
-            <input type="hidden" name="hidden1" value="1" />
-            <h:selectOneListbox value="#{jsfTreino.tipo}">
+            <h:inputHidden value="#{jsfTreino.id}"/>
+                  
+            <h:selectOneMenu value="#{jsfTreino.tipo}">
                 <f:selectItem itemValue="1" itemLabel="Perca de peso" />
-                <f:selectItem itemValue="2" itemLabel="Hipertrofia" />	
+                <f:selectItem itemValue="2" itemLabel="Hipertrofia" />
                 <f:selectItem itemLabel="3" itemLabel="Cardiaco" />
             </h:selectOneListbox>
        
-            <h:commandButton value="salvar" action="#{jsfTreino.salvar()}"> </h:commandButton>
-            <h:commandButton value="Alterar" action="#{jsfTreino.merge()}"> </h:commandButton>
+            <h:commandButton id="salvar" value="salvar" action="#{jsfTreino.salvar()}"> </h:commandButton>
+            <h:commandButton id="merge" value="Alterar" action="#{jsfTreino.merge()}"> </h:commandButton>
         </h:form>
-
         <h:form >
             <h:dataTable value="#{jsfTreino.all}" var="exer">
+                
                 <h:column>
                     <h:outputText value="#{exer.exercicio1}"/>
                 </h:column>
@@ -92,13 +88,12 @@
                     <h:outputText value="#{exer.tipo}"/> 
                 </h:column>
                 <h:column>
-                    <h:commandButton value="excluir" action="#{jsfTreino.remove(exer)}"> </h:commandButton>
+                    <h:commandButton id="remove" value="X" action="#{jsfTreino.remove(exer)}"> </h:commandButton>
                 </h:column>
                 <h:column>
-                    <h:commandButton value="Editar" action="#{jsfTreino.load_data(exer)}"> </h:commandButton>
+                    <h:commandButton id="load_data" onclick="desabilitarSalvar();" value="Editar" action="#{jsfTreino.load_data(exer)}"> </h:commandButton>
                 </h:column>
             </h:dataTable>
         </h:form>
     </h:body>
 </html>
-
