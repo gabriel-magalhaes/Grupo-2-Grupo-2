@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+    <h:title>MaxMove Laísa</h:title>
+</h:head>
+<h:body>
+    <h:form>
+        Nome:
+        <h:inputText  value="#{jsfCliente.nome}"/><br></br>
+        Senha:
+        <h:inputText  value="#{jsfCliente.senha}" /><br></br>
+        Data de Nascimento:
+        <h:inputText  value="#{jsfCliente.nascimento}" >
+            <f:convertDateTime pattern="dd/mm/yyyy"/>
+        </h:inputText><br></br>
+        Sexo:
+        <h:inputText  value="#{jsfCliente.sexo}"/><br></br>
+        Altura:
+        <h:inputText  value="#{jsfCliente.altura}" /><br></br>
+        Peso:
+        <h:inputText  value="#{jsfCliente.peso}" /><br></br>
+        Rua:
+        <h:inputText  value="#{jsfCliente.rua}"/><br></br>
+        Numero:
+        <h:inputText  value="#{jsfCliente.numero}" /><br></br>
+        Complemento:
+        <h:inputText  value="#{jsfCliente.complemento}" /><br></br>
+        Bairro:
+        <h:inputText  value="#{jsfCliente.bairro}"/><br></br>
+        Cidade:
+        <h:inputText  value="#{jsfCliente.cidade}" /><br></br>
+        Estado:
+        <h:inputText  value="#{jsfCliente.estado}" /><br></br>
+        CEP:
+        <h:inputText  value="#{jsfCliente.cep}" /><br></br>
+        Pais:
+        <h:inputText  value="#{jsfCliente.pais}" /><br></br>
+        Telefone:
+        <h:inputText  value="#{jsfCliente.telefone}" /><br></br>
+        Celular:
+        <h:inputText  value="#{jsfCliente.celular}" /><br></br>
+        <h:messages></h:messages>
+        <h:commandButton value="Atualizar" action="#{jsfCliente.atualizar()}"></h:commandButton>
+    </h:form>
+</h:body>
+</html>
