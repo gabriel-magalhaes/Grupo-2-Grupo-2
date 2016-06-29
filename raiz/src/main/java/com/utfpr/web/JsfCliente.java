@@ -17,7 +17,7 @@ import java.util.Map;
 
 /**
  * Created by laisa on 26/06/2016.
- */
+ */ 
 @ManagedBean
 @ViewScoped
 public class JsfCliente implements Serializable{

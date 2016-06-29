@@ -24,7 +24,7 @@ public class Cliente extends Pessoa {
 
     public void setAltura(float altura) {
         this.altura = altura;
-    }
+    } 
 
     public int getIdade() {
         return idade;

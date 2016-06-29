@@ -20,7 +20,7 @@ import javax.persistence.NamedQuery;
 @NamedQuery(name = "Alimentos.findAll", query = "SELECT a FROM Alimentos a")
 @Entity
 public class Alimentos implements Serializable {
-
+ 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
