@@ -282,7 +282,7 @@ public class JsfCliente implements Serializable {
         endereco = new CrudEndereco().persist(endereco);
         cliente.setEnd(endereco);
         new CrudCliente().persist(cliente);
-        return "calculoCardiaco";
+        return "login?faces-redirect=true";
     }
 
     public String atualizar() {
