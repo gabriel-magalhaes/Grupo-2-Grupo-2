@@ -89,5 +89,21 @@ public class CrudTreino {
         }
     }
     
+    /*
+     public java.util.Collection<com.utfpr.entidades.Treino> getTreino(com.utfpr.entidades.Treino trei) {
+        EntityManager em = emf.createEntityManager();
+        try {
+          
+            return em.find(com.utfpr.entidades.Treino.class, trei.getTipo());
+           
+        } catch (Exception e) {
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", e);
+            //em.getTransaction().rollback();
+            return null;
+        } finally {
+            em.close();
+        }
+    }
+    */
     
 }

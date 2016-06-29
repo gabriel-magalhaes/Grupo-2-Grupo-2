@@ -5,13 +5,66 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html">
 <h:head>
-    <title>MaxMove LaÃ­sa</title>
+    <title>MaxMove LaÃƒÂ­sa</title>
 </h:head>
 <h:body>
     <h:form>
         <h:commandButton value="Atualizar" action="crudCliente?faces-redirect=true"></h:commandButton>
         <h:commandButton value="Excluir Conta" action="#{jsfCliente.excluir()}"></h:commandButton>
-        <h:commandButton value="Logout" action="#{jsfLogin.sair()}"></h:commandButton>
+        <h:commandButton value="Logout" action="#{jsfLogin.sair()}"></h:commandButton><br></br>
+       
     </h:form>
+    
+    <h2>Calculo Basal</h2>
+    <h:form>
+         <h:commandButton value="Calcular" action="#{jsfLogin.calculoBasal()}"></h:commandButton> <h:outputText value="#{jsfLogin.basal}"/>
+    </h:form>
+    <h:form>
+        <h2>Treinos Recomendados</h2>        
+         <h:dataTable value="#{jsfTreino.all}" var="exer">
+                    <h:column>
+                        <h:outputText value="#{exer.exercicio1}"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{exer.repeticao1}"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{exer.exercicio2}"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{exer.repeticao2}"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{exer.exercicio3}"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{exer.repeticao3}"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{exer.exercicio4}"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{exer.repeticao4}"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{exer.exercicio5}"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{exer.repeticao5}"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{exer.exercicio6}"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{exer.repeticao6}"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{exer.tipo}"/> 
+                    </h:column>
+                   
+                </h:dataTable>
+            </h:form>
+        
+
 </h:body>
 </html>

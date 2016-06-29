@@ -5,11 +5,13 @@
  */
 package com.utfpr.entidades;
 
+import com.utfpr.type.Tipo;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
 
@@ -18,7 +20,11 @@ import javax.persistence.NamedQuery;
  *
  * @author Heydi
  */
-@NamedQuery(name = "Treino.findAll", query = "SELECT t FROM Treino t")
+
+@NamedQueries({@NamedQuery(name = "Treino.findAll", query = "SELECT t FROM Treino t"),
+    @NamedQuery(name = "Treino.findTreino", query = "SELECT t FROM Treino t where t.tipo=:tipo")
+})
+
 @Entity
 public class Treino implements Serializable {
 
@@ -38,7 +44,7 @@ public class Treino implements Serializable {
     public String repeticao5;
     public String exercicio6;
     public String repeticao6;
-    public int tipo;
+    public Tipo tipo;
 
     public Long getId() {
         return id;
@@ -145,11 +151,11 @@ public class Treino implements Serializable {
     }
 
 
-    public int getTipo() {
+    public Tipo getTipo() {
         return tipo;
     }
 
-    public void setTipo(int tipo) {
+    public void setTipo(Tipo tipo) {
         this.tipo = tipo;
     }
 

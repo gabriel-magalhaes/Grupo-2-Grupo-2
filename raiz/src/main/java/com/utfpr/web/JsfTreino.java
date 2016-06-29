@@ -5,6 +5,7 @@
  */
 package com.utfpr.web;
 
+import com.utfpr.entidades.Cliente;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import com.utfpr.entidades.Treino;
@@ -33,7 +34,8 @@ public class JsfTreino {
     public String repeticao5;
     public String exercicio6;
     public String repeticao6;
-    public int tipo;
+    public Tipo tipo;
+    public double basal;
 
     public Long getId() {
         return id;
@@ -139,11 +141,11 @@ public class JsfTreino {
         this.repeticao6 = repeticao6;
     }
 
-    public int getTipo() {
+    public Tipo getTipo() {
         return tipo;
     }
 
-    public void setTipo(int tipo) {
+    public void setTipo(Tipo tipo) {
         this.tipo = tipo;
     }
 
@@ -221,4 +223,14 @@ public class JsfTreino {
     public Collection<Treino> getAll() {
         return new com.utfpr.crud.CrudTreino().getAll();
     }
+    /*
+    
+    public Collection<Treino> ProcuraTreino() { 
+        com.utfpr.entidades.Treino trei;
+        trei=new com.utfpr.entidades.Treino();
+        trei.setTipo(tipo);
+        return new com.utfpr.crud.CrudTreino().getTreino(trei);
+    }
+    */
+    
 }

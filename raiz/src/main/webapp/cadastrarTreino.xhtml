@@ -6,93 +6,213 @@
     <h:head>
         <title>TREINO</title>
         <script type="text/javascript" src="js/javascript.js"></script>
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
     </h:head>
     <h:body>
-        <h:form id="emagrecer">
-            <h4> Treino para Emagrecer:</h4>
-            Exercicio:
-            <h:inputText  value="#{jsfTreino.exercicio1}"/>
-            Repeticao:
-            <h:inputText  value="#{jsfTreino.repeticao1}"/><br></br>
-            Exercicio:
-            <h:inputText  value="#{jsfTreino.exercicio2}"/>
-            Repeticao:
-            <h:inputText  value="#{jsfTreino.repeticao2}"/><br></br>
-            Exercicio:
-            <h:inputText  value="#{jsfTreino.exercicio3}"/>
-            Repeticao:
-            <h:inputText  value="#{jsfTreino.repeticao3}"/><br></br>
-            Exercicio:
-            <h:inputText  value="#{jsfTreino.exercicio4}"/>
-            Repeticao:
-            <h:inputText  value="#{jsfTreino.repeticao4}"/><br></br>
-            Exercicio:
-            <h:inputText  value="#{jsfTreino.exercicio5}"/>            
-            Repeticao:
-            <h:inputText  value="#{jsfTreino.repeticao5}"/><br></br>
-            Exercicio:
-            <h:inputText  value="#{jsfTreino.exercicio6}"/>
-            Repeticao:
-            <h:inputText  value="#{jsfTreino.repeticao6}" /><br></br>
-            <h:inputHidden value="#{jsfTreino.id}" /><br></br>
-            
-            <h:selectOneMenu value="#{jsfTreino.tipo}">
-                <f:selectItem itemValue="1" itemLabel="Perca de peso" />
-                <f:selectItem itemValue="2" itemLabel="Hipertrofia" />	
-                <f:selectItem itemValue="3" itemLabel="Cardíaco" />
-            </h:selectOneMenu>
-       
-            <h:commandButton value="salvar" action="#{jsfTreino.salvar()}"> </h:commandButton>
-            <h:commandButton value="Alterar" action="#{jsfTreino.merge()}"> </h:commandButton>
-        </h:form>
-        <h:form >
-            <h:dataTable value="#{jsfTreino.all}" var="exer">
-                <h:column>
-                    <h:outputText value="#{exer.exercicio1}"/>
-                </h:column>
-                <h:column>
-                    <h:outputText value="#{exer.repeticao1}"/>
-                </h:column>
-                <h:column>
-                    <h:outputText value="#{exer.exercicio2}"/>
-                </h:column>
-                <h:column>
-                    <h:outputText value="#{exer.repeticao2}"/>
-                </h:column>
-                <h:column>
-                    <h:outputText value="#{exer.exercicio3}"/>
-                </h:column>
-                <h:column>
-                    <h:outputText value="#{exer.repeticao3}"/>
-                </h:column>
-                <h:column>
-                    <h:outputText value="#{exer.exercicio4}"/>
-                </h:column>
-                <h:column>
-                    <h:outputText value="#{exer.repeticao4}"/>
-                </h:column>
-                <h:column>
-                    <h:outputText value="#{exer.exercicio5}"/>
-                </h:column>
-                <h:column>
-                    <h:outputText value="#{exer.repeticao5}"/>
-                </h:column>
-                <h:column>
-                    <h:outputText value="#{exer.exercicio6}"/>
-                </h:column>
-                <h:column>
-                    <h:outputText value="#{exer.repeticao6}"/>
-                </h:column>
-                <h:column>
-                    <h:outputText value="#{exer.tipo}"/> 
-                </h:column>
-                <h:column>
-                    <h:commandButton value="excluir" action="#{jsfTreino.remove(exer)}"> </h:commandButton>
-                </h:column>
-                <h:column>
-                    <h:commandButton value="Editar" action="#{jsfTreino.load_data(exer)}"> </h:commandButton>
-                </h:column>
-            </h:dataTable>
-        </h:form>
+        <nav class="white" role="navigation">
+            <div class="nav-wrapper container">
+                <a id="logo-container" href="#" class="brand-logo"><img src="logo.jpg" /></a>
+
+                <ul id="nav-mobile" class="side-nav">
+                    <li><a href="#">Navbar Link </a></li>
+                </ul>
+
+            </div>
+        </nav>
+
+        <div id="index-banner" class="parallax-container">
+            <div class="section no-pad-bot">
+                <div class="container">
+                    <br/><br/>
+                    <h1 class="header center light white-text">GERENCIAR TREINO</h1>
+
+                    <div class="row center">
+                        <a href="http://localhost:8084/MaxMove/admin.xhtml" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">VOLTAR</a>
+                    </div>
+                    <br/><br/>
+
+                </div>
+            </div>
+            <div class="parallax"><img src="img1.jpg" alt="Unsplashed background img 1"/></div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m12 ">
+                    <h1 class=" center teal lighten-5  teal-text"></h1>
+                </div>
+            </div>
+            <h:form id="emagrecer">
+                <div class="row">
+                    <div class="input-field col s6 m4">
+                        Exercicio 1:
+                        <h:inputText  value="#{jsfTreino.exercicio1}"/>
+                    </div>
+                    <div class="input-field col s6 m2">
+                        Série:
+                        <h:inputText  value="#{jsfTreino.repeticao1}"/><br></br>
+                    </div>
+                    <div class="input-field col s6 m4">
+                        Exercicio 2:
+                        <h:inputText  value="#{jsfTreino.exercicio2}"/>
+                    </div>
+                    <div class="input-field col s6 m2">
+                        Série:
+                        <h:inputText  value="#{jsfTreino.repeticao2}"/><br></br>
+                    </div>
+                    <div class="input-field col s6 m4">
+                        Exercicio 3:
+                        <h:inputText  value="#{jsfTreino.exercicio3}"/>
+                    </div>
+                    <div class="input-field col s6 m2">
+                        Série :
+                        <h:inputText  value="#{jsfTreino.repeticao3}"/><br></br>
+                    </div>
+                    <div class="input-field col s6 m4">
+                        Exercicio 4:
+                        <h:inputText  value="#{jsfTreino.exercicio4}"/>
+                    </div>
+                    <div class="input-field col s6 m2">
+                        Série:
+                        <h:inputText  value="#{jsfTreino.repeticao4}"/><br></br>
+                    </div>
+                    <div class="input-field col s6 m4">
+                        Exercicio 5:
+                        <h:inputText  value="#{jsfTreino.exercicio5}"/>   
+                    </div>
+                    <div class="input-field col s6 m2">
+                        Série:
+                        <h:inputText  value="#{jsfTreino.repeticao5}"/><br></br></div>       
+                    <div class="input-field col s6 m4">
+                        Exercicio 6:
+                        <h:inputText  value="#{jsfTreino.exercicio6}"/>
+                    </div>
+                    <div class="input-field col s6 m2">
+                        Série:
+                        <h:inputText  value="#{jsfTreino.repeticao6}" /><br></br>
+                    </div>
+                    <div class="input-field col s6 m6 left">
+                        Tipo de Treino:
+                        <h:selectOneRadio value="#{jsfTreino.tipo}" class="center">
+                            <f:selectItem itemValue="EMAGRECIMENTO" itemLabel="Emagrecer" />
+                            <f:selectItem itemValue="HIPERTROFIA" itemLabel="Hipertrofia" />	
+                            <f:selectItem itemValue="CARDIACOS" itemLabel="Cardíaco" />
+                        </h:selectOneRadio>
+                    </div>
+                    <div class="input-field col s6 m6 left">
+                        <h:inputHidden value="#{jsfTreino.id}" /><br></br>
+                    </div>
+                    <row>
+                        <div class="input-field col s12 m3 right-align ">
+                            <h:commandButton value="salvar" action="#{jsfTreino.salvar()}"> </h:commandButton>
+                        </div>
+                        <div class="input-field col s6 m3 right-align ">
+
+                            <h:commandButton value="Alterar" action="#{jsfTreino.merge()}"> </h:commandButton>
+                        </div>
+                    </row>
+
+                </div>
+            </h:form>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m12 ">
+                    <h4 class=" center teal lighten-5  teal-text">Treinos Cadastrados</h4>
+                </div>
+            </div>
+            <h:form >
+
+                <h:dataTable value="#{jsfTreino.all}" var="exer">
+                    <h:column>
+                        <h:outputText value="#{exer.exercicio1}"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{exer.repeticao1}"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{exer.exercicio2}"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{exer.repeticao2}"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{exer.exercicio3}"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{exer.repeticao3}"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{exer.exercicio4}"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{exer.repeticao4}"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{exer.exercicio5}"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{exer.repeticao5}"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{exer.exercicio6}"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{exer.repeticao6}"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{exer.tipo}"/> 
+                    </h:column>
+                    <h:column>
+                        <h:commandButton value="excluir" action="#{jsfTreino.remove(exer)}"> </h:commandButton>
+                    </h:column>
+                    <h:column>
+                        <h:commandButton value="Editar" action="#{jsfTreino.load_data(exer)}"> </h:commandButton>
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+        </div>
+
+        <footer class="page-footer teal">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="white-text">MaxMove</h5>
+                        <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+
+
+                    </div>
+                    <div class="col l3 s12">
+                        <h5 class="white-text">Redes Sociais</h5>
+                        <ul>
+                            <li><a class="white-text" href="#!">Linkedin</a></li>
+                            <li><a class="white-text" href="#!">Facebook</a></li>
+                            <li><a class="white-text" href="#!">Instagram</a></li>
+                            <li><a class="white-text" href="#!">Eventos</a></li>
+                        </ul>
+                    </div>
+                    <div class="col l3 s12">
+                        <h5 class="white-text"> Contato</h5>
+                        <ul>
+                            <li><a class="white-text" href="#!">Email</a></li>
+                            <li><a class="white-text" href="#!">Empresa</a></li>
+                            <li><a class="white-text" href="#!">Endereço</a></li>
+                            <li><a class="white-text" href="#!">Saiba mais</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">MaxMove</a>
+                </div>
+            </div>
+        </footer>
+
+
+        <!--  Scripts-->
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="js/materialize.js"></script>
+        <script src="js/init.js"></script>
+
     </h:body>
 </html>
