@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>MaxMove PrincipalPersonal</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+        <!-- CSS  -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    </h:head> 
+    <h:body>
+        <nav class="white" role="navigation">
+            <div class="nav-wrapper container">
+                <a id="logo-container" href="http://localhost:8084/MaxMove/principalCliente.xhtml" class="brand-logo"><img src="logo.jpg" /></a>
+            </div>
+        </nav>
+        <div id="index-banner" class="parallax-container">
+            <div class="section no-pad-bot">
+                <div class="container">
+                    <br/><br/>
+                    <h1 class="header center light col s12 white-text shadow-text">MaxMove</h1>
+                    <div class="row center">
+                        <h5 class="header col s12 white-text shadow-text">Realize seu Calculo Basal!</h5>
+                    </div>
+                    <br/><br/>
+                </div>
+            </div>
+            <div class="parallax"><img src="img6.jpg" alt="Unsplashed background img 1"/></div>
+        </div>
+        <div class="container">
+            <div class="section">
+                <h:form>
+                    <h3 class="teal-text">Calculo Basal</h3>
+
+                    <h4 class="center">Metabolismo basal ou Taxa metabólica basal é um(a) meio/forma matemático(a), não exato(a), de calcular a quantidade calórica que o corpo necessita, em vinte e quatro horas, para manter-se nutrido durante o decorrer das atividades diárias, e/ou fazendo um jejum de pelo menos doze horas em repouso, sem prejudicar o funcionamento dos principais órgãos.</h4>
+                    <br></br><h4>Seu metabolismo basal é:<h1 class="center"> <h:outputText class="teal-text" value="#{jsfLogin.calculoBasal()}"/> </h1></h4>
+
+                </h:form>
+            </div>
+        </div>
+
+        <!--  Scripts-->
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="js/materialize.js"></script>
+        <script src="js/init.js"></script>
+
+      <footer class="page-footer teal">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="white-text">MaxMove</h5>
+                        <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+
+
+                    </div>
+                    <div class="col l3 s12">
+                        <h5 class="white-text">Redes Sociais</h5>
+                        <ul>
+                            <li><a class="white-text" href="#!">Linkedin</a></li>
+                            <li><a class="white-text" href="#!">Facebook</a></li>
+                            <li><a class="white-text" href="#!">Instagram</a></li>
+                            <li><a class="white-text" href="#!">Eventos</a></li>
+                        </ul>
+                    </div>
+                    <div class="col l3 s12">
+                        <h5 class="white-text"> Contato</h5>
+                        <ul>
+                            <li><a class="white-text" href="#!">Email</a></li>
+                            <li><a class="white-text" href="#!">Empresa</a></li>
+                            <li><a class="white-text" href="#!">Endereço</a></li>
+                            <li><a class="white-text" href="#!">Saiba mais</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">MaxMove</a>
+                </div>
+            </div>
+        </footer>
+
+    </h:body>
+</html>

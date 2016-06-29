@@ -15,9 +15,9 @@
     </h:form>
     <!--Comando para o calcular o IMC -->
     <h:form>
-        <h2>Calcular o IMC</h2>
-        <h4>Neste espaÃƒÂ§o ÃƒÂ© possÃƒÂ­vel calcular seu Ãƒï¿½ndice de Massa CorpÃƒÂ³rea (IMC) e na sequÃƒÂªncia calcular tambÃƒÂ©m seu percentual de gordura</h4>
-        <!--Neste espaÃƒÂ§o ÃƒÂ© possÃƒÂ­vel calcular seu Ãƒï¿½ndice de Massa CorpÃƒÂ³rea (IMC) e na sequÃƒÂªncia calcular tambÃƒÂ©m seu percentual de gordura-->
+        <h2>Calcular o IMC e Porcentagem de Gordura Corporal</h2>
+       
+        <!---->
         <h:commandButton value="Calcular" action="calcularImc?faces-redirect=true"></h:commandButton>
     </h:form>
      <h:form>
@@ -49,7 +49,7 @@
     
      <h2>Calculo Basal</h2>
     <h:form>
-         <h:commandButton value="Calcular" action="#{jsfLogin.calculoBasal()}"></h:commandButton> <h:outputText value="#{jsfLogin.basal}"/>
+         <h:commandButton value="Calcular" action="calculoBasal?faces-redirect=true"></h:commandButton>
     </h:form>
     <h:form>
         <h2>Treinos Recomendados</h2>        

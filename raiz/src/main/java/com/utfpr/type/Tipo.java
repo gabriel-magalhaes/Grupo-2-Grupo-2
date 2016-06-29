@@ -10,12 +10,12 @@ package com.utfpr.type;
  * @author Tamires
  */
     public enum Tipo {
-    TIPO1, TIPO2, TIPO3
+    EMEGRECER, HIPERTROFIA, CARDIACOS
     
     /**
- * TIPO1: Emagrecer 
- * TIPO2: Musculo
- * TIPO3: Cardiaco
+ * EMEGRECER: Emagrecer 
+ * HIPERTROFIA: Musculo
+ * CARDIACOS: Cardiaco
  */
     
 }
