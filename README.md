@@ -10,10 +10,17 @@ git clone https://github.com/gabriel-magalhaes/Grupo-2-Grupo-2.git
 
 Na pasta `raiz/src` execute o comando
 ```sh
-mvn tomcat:run
+mvn compile tomcat7:run
 ```
 
 Após finalizada a execução acesse o link <http://localhost:8080/MaxMove/>
+
+## Rodando os testes
+
+Na pasta `raiz/src` execute o comando
+```sh
+mvn test-compile test
+```
 
 ---
 
