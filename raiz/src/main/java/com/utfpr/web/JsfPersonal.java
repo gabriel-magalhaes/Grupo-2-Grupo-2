@@ -5,11 +5,18 @@
  */
 package com.utfpr.web;
 
+import com.utfpr.crud.CrudPersonal;
+import com.utfpr.crud.CrudEndereco;
 import com.utfpr.entidades.Personal;
+import com.utfpr.entidades.Endereco;
 import com.utfpr.type.Tipo;
+import java.io.Serializable;
 import java.util.Collection;
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
@@ -18,14 +25,9 @@ import javax.persistence.Id;
  * @author Tamires
  */
 @ManagedBean
-@RequestScoped
-public class JsfPersonal {
-    
-    @Id
-    @GeneratedValue
+@ViewScoped
+public class JsfPersonal implements Serializable{
     public long id;
-    public String pagina;
-    public Tipo especialidade;
     public String nome;
     public String email;
     public String sexo;
@@ -37,9 +39,13 @@ public class JsfPersonal {
     public String bairro;
     public String cidade;
     public String estado;
-    public int cep;
+    public long cep;
     public String pais;
     public String complemento;
+    public String senha;
+    private String emailOriginal;
+    public String pagina;
+    public Tipo especialidade;
 
     public long getId() {
         return id;
@@ -47,22 +53,6 @@ public class JsfPersonal {
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public String getPagina() {
-        return pagina;
-    }
-
-    public void setPagina(String pagina) {
-        this.pagina = pagina;
-    }
-
-    public Tipo getEspecialidade() {
-        return especialidade;
-    }
-
-    public void setEspecialidade(Tipo especialidade) {
-        this.especialidade = especialidade;
     }
 
     public String getNome() {
@@ -153,11 +143,11 @@ public class JsfPersonal {
         this.estado = estado;
     }
 
-    public int getCep() {
+    public long getCep() {
         return cep;
     }
 
-    public void setCep(int cep) {
+    public void setCep(long cep) {
         this.cep = cep;
     }
 
@@ -177,77 +167,131 @@ public class JsfPersonal {
         this.complemento = complemento;
     }
 
-    public void salvar() {
-        com.utfpr.entidades.Personal pers;
-        pers = new com.utfpr.entidades.Personal();
-        pers.setEspecialidade(especialidade);
-        pers.setPagina(pagina); 
-        pers.setNome(nome);
-        pers.setEmail(email);
-        pers.setSexo(sexo);
-        pers.setTelefone(telefone);
-        pers.setCelular(celular);
-        pers.setNascimentoPersonal(nascimentoPersonal);
-        pers.setRua(rua);
-        pers.setNumero(numero);
-        pers.setBairro(bairro);
-        pers.setCidade(cidade);
-        pers.setEstado(estado);
-        pers.setCep(cep);
-        pers.setPais(pais);
-        pers.setComplemento(complemento);
-        
-        new com.utfpr.crud.CrudPersonal().persist(pers);
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public String getEmailOriginal() {
+        return emailOriginal;
+    }
+
+    public void setEmailOriginal(String emailOriginal) {
+        this.emailOriginal = emailOriginal;
+    }
+
+    public String getPagina() {
+        return pagina;
+    }
+
+    public void setPagina(String pagina) {
+        this.pagina = pagina;
+    }
+
+    public Tipo getEspecialidade() {
+        return especialidade;
+    }
+
+    public void setEspecialidade(Tipo especialidade) {
+        this.especialidade = especialidade;
+    }
+
+    
+    
+    @PostConstruct
+    public void init() {
+        String email = (String)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("email");
+        if (email != null) {
+            System.out.println(email);
+            Personal personal = new CrudPersonal().get(email);
+            this.nome = personal.getNome();
+            this.email = personal.getEmail();
+            this.emailOriginal = personal.getEmail();
+            this.senha = personal.getSenha();
+            this.nascimentoPersonal = personal.getNascimentoPersonal();
+            this.sexo = personal.getSexo();
+            this.pagina = personal.getPagina();
+            this.especialidade = personal.getEspecialidade();
+            this.telefone = personal.getTelefone();
+            this.celular = personal.getCelular();
+            Endereco endereco = personal.getEnd();
+            this.rua = endereco.getRua();
+            this.numero = endereco.getNumero();
+            this.bairro = endereco.getBairro();
+            this.cidade = endereco.getCidade();
+            this.cep = endereco.getCep();
+            this.complemento = endereco.getComplemento();
+            this.estado = endereco.getEstado();
+            this.pais = endereco.getPais();
+        }
+    }
+
+    public String cadastrar() {
+        Personal personal = new Personal();
+        Endereco endereco = new Endereco();
+        personal.setNome(nome);
+        personal.setEmail(email);
+        personal.setNascimentoPersonal(nascimentoPersonal);
+        personal.setSexo(sexo);
+        personal.setEspecialidade(especialidade);
+        personal.setPagina(pagina);
+        personal.setTelefone(telefone);
+        personal.setCelular(celular);
+        personal.setSenha(senha);
+        endereco.setRua(rua);
+        endereco.setNumero(numero);
+        endereco.setBairro(bairro);
+        endereco.setCidade(cidade);
+        endereco.setEstado(estado);
+        endereco.setCep(cep);
+        endereco.setPais(pais);
+        endereco.setComplemento(complemento);
+        endereco = new CrudEndereco().persist(endereco);
+        personal.setEnd(endereco);
+        new CrudPersonal().persist(personal);
+        return "principalPersonal";
     }
     
-    public void remove(com.utfpr.entidades.Personal prof) {
-        new com.utfpr.crud.CrudPersonal().remove(prof);
-
+    public String atualizar() {
+        Personal personal = new Personal();
+        Endereco endereco = new Endereco();
+        personal.setNome(nome);
+        personal.setEmail(email);
+        personal.setNascimentoPersonal(nascimentoPersonal);
+        personal.setSexo(sexo);
+        personal.setEspecialidade(especialidade);
+        personal.setPagina(pagina);
+        personal.setTelefone(telefone);
+        personal.setCelular(celular);
+        personal.setSenha(senha);
+        endereco.setRua(rua);
+        endereco.setNumero(numero);
+        endereco.setBairro(bairro);
+        endereco.setCidade(cidade);
+        endereco.setEstado(estado);
+        endereco.setCep(cep);
+        endereco.setPais(pais);
+        endereco.setComplemento(complemento);
+        CrudPersonal crudPersonal = new CrudPersonal();
+        long endId = crudPersonal.get(emailOriginal).getEnd().id;
+        endereco.setId(endId);
+        endereco = new CrudEndereco().atualizar(endereco);
+        personal.setEnd(endereco);
+        crudPersonal.atualizar(personal, emailOriginal);
+        return "principalPersonal?faces-redirect=true";
     }
 
-    public void merge() {
-        com.utfpr.entidades.Personal prof;
-        prof=new com.utfpr.entidades.Personal();
-        prof.setId(id);
-        prof.setEspecialidade(especialidade);
-        prof.setPagina(pagina); 
-        prof.setNome(nome);
-        prof.setEmail(email);
-        prof.setSexo(sexo);
-        prof.setTelefone(telefone);
-        prof.setCelular(celular);
-        prof.setNascimentoPersonal(nascimentoPersonal);
-        prof.setRua(rua);
-        prof.setNumero(numero);
-        prof.setBairro(bairro);
-        prof.setCidade(cidade);
-        prof.setEstado(estado);
-        prof.setCep(cep);
-        prof.setPais(pais);
-        prof.setComplemento(complemento);
-        new com.utfpr.crud.CrudPersonal().update(prof);
-
+    public String excluir(){
+        String email = (String)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("email");
+        if (email != null) {
+            new CrudPersonal().excluir(email);
+            FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+        }
+        return "index";
     }
-
-    public void load_data(com.utfpr.entidades.Personal prof) {
-        this.id = prof.getId();
-        this.especialidade = prof.getEspecialidade();
-        this.pagina = prof.getPagina();
-        this.nome = prof.getNome();
-        this.email = prof.getEmail();
-        this.sexo = prof.getSexo();
-        this.telefone = prof.getTelefone();
-        this.celular = prof.getCelular();
-        this.nascimentoPersonal = prof.getNascimentoPersonal();
-        this.rua = prof.getRua();
-        this.numero = prof.getNumero();
-        this.bairro = prof.getBairro();
-        this.cidade = prof.getCidade();
-        this.estado=prof.getEstado();
-        this.cep=prof.getCep();
-        this.pais=prof.getPais();
-        this.complemento=prof.getComplemento();
-}
     
     public Collection<Personal> getAll() {
         return new com.utfpr.crud.CrudPersonal().getAll();

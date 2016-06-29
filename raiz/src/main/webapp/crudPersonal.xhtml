@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+    <title>MaxMove Personal</title>
+     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+       <!-- CSS  -->
+       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+       <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+       <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</h:head>
+<h:body>
+     <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+        <a id="logo-container" href="#" class="brand-logo"><img src="logo.jpg" /></a>
+    </div>
+  </nav>
+
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br/><br/>
+        <h1 class="header center light white-text shadow-text">MaxMove</h1>
+        <div class="row center">
+          <h5 class="header col s12 white-text shadow-text">Seja um Personal na MaxMove</h5>
+        </div>
+        <br/><br/>
+      </div>
+    </div>
+    <div class="parallax"><img src="img7.jpg" alt="Unsplashed background img 1"/></div>
+  </div>
+  <div class="container">
+    <div class="section">
+    <h:form>
+        Nome:
+        <h:inputText  value="#{jsfPersonal.nome}"/><br></br>
+        Senha:
+        <h:inputText  value="#{jsfPersonal.senha}" /><br></br>
+        Data de Nascimento:
+        <h:inputText  value="#{jsfPersonal.nascimentoPersonal}"/><br></br>
+        Sexo:
+        <h:inputText  value="#{jsfPersonal.sexo}"/><br></br>
+        Especialidade:
+            <h:selectOneRadio value="#{jsfPersonal.especialidade}">
+                <f:selectItem itemValue="TIPO1" itemLabel="Emagrecimento" />
+                <f:selectItem itemValue="TIPO2" itemLabel="Hipertrofia" />
+                <f:selectItem itemValue="TIPO3" itemLabel="Cardíaco" />
+            </h:selectOneRadio><br></br>
+        Pagina:
+        <h:inputText  value="#{jsfPersonal.pagina}" /><br></br>
+        Rua:
+        <h:inputText  value="#{jsfPersonal.rua}"/><br></br>
+        Numero:
+        <h:inputText  value="#{jsfPersonal.numero}" /><br></br>
+        Complemento:
+        <h:inputText  value="#{jsfPersonal.complemento}" /><br></br>
+        Bairro:
+        <h:inputText  value="#{jsfPersonal.bairro}"/><br></br>
+        Cidade:
+        <h:inputText  value="#{jsfPersonal.cidade}" /><br></br>
+        Estado:
+        <h:inputText  value="#{jsfPersonal.estado}" /><br></br>
+        CEP:
+        <h:inputText  value="#{jsfPersonal.cep}" /><br></br>
+        Pais:
+        <h:inputText  value="#{jsfPersonal.pais}" /><br></br>
+        Telefone:
+        <h:inputText  value="#{jsfPersonal.telefone}" /><br></br>
+        Celular:
+        <h:inputText  value="#{jsfPersonal.celular}" /><br></br>
+        <h:messages></h:messages>
+        <h:commandButton value="Atualizar" action="#{jsfPersonal.atualizar()}"></h:commandButton>
+    </h:form>
+    </div>
+        <!--  Scripts-->
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="js/materialize.js"></script>
+        <script src="js/init.js"></script>
+  </div>
+</h:body>
+</html>

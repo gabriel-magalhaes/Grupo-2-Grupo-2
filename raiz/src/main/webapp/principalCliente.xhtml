@@ -5,17 +5,49 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html">
 <h:head>
-    <title>MaxMove LaÃƒÂ­sa</title>
+    <title>MaxMove Cliente</title>
 </h:head>
 <h:body>
     <h:form>
         <h:commandButton value="Atualizar" action="crudCliente?faces-redirect=true"></h:commandButton>
         <h:commandButton value="Excluir Conta" action="#{jsfCliente.excluir()}"></h:commandButton>
-        <h:commandButton value="Logout" action="#{jsfLogin.sair()}"></h:commandButton><br></br>
-       
+        <h:commandButton value="Logout" action="#{jsfLogin.sair()}"></h:commandButton>
     </h:form>
+    <!--Comando para o calcular o IMC -->
+    <h:form>
+        <h2>Calcular o IMC</h2>
+        <h4>Neste espaÃ§o Ã© possÃ­vel calcular seu Ã�ndice de Massa CorpÃ³rea (IMC) e na sequÃªncia calcular tambÃ©m seu percentual de gordura</h4>
+        <!--Neste espaÃ§o Ã© possÃ­vel calcular seu Ã�ndice de Massa CorpÃ³rea (IMC) e na sequÃªncia calcular tambÃ©m seu percentual de gordura-->
+        <h:commandButton value="Calcular" action="calcularImc?faces-redirect=true"></h:commandButton>
+    </h:form>
+     <h:form>
+        <h2>Dietas Recomendadas</h2>        
+         <h:dataTable value="#{jsfDieta.all}" var="dieta">
+                    <h:column>
+                        <h:outputText value="#{dieta.nome1}"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{dieta.nome2}"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{dieta.nome3}"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{dieta.nome4}"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{dieta.nome5}"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{dieta.nome6}"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{dieta.tipo}"/>
+                    </h:column>
+                </h:dataTable>
+            </h:form>
     
-    <h2>Calculo Basal</h2>
+     <h2>Calculo Basal</h2>
     <h:form>
          <h:commandButton value="Calcular" action="#{jsfLogin.calculoBasal()}"></h:commandButton> <h:outputText value="#{jsfLogin.basal}"/>
     </h:form>
@@ -64,7 +96,6 @@
                    
                 </h:dataTable>
             </h:form>
-        
-
 </h:body>
 </html>
+

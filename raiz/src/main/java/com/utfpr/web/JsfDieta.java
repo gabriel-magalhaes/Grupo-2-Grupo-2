@@ -20,8 +20,9 @@ import javax.persistence.Id;
 @ManagedBean
 @RequestScoped
 public class JsfDieta {
-
-    public Long id;
+    @Id
+    @GeneratedValue
+    public long id;
     public String nome1;
     public String nome2;
     public String nome3;
@@ -30,11 +31,11 @@ public class JsfDieta {
     public String nome6;
     public Tipo tipo;
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -94,57 +95,52 @@ public class JsfDieta {
         this.tipo = tipo;
     }
 
-   
-
+    
     public void salvar() {
         com.utfpr.entidades.Alimentos dieta;
         dieta = new com.utfpr.entidades.Alimentos();
         dieta.setNome1(nome1);
         dieta.setNome2(nome2);
         dieta.setNome3(nome3);
-        dieta.setNome3(nome3);
         dieta.setNome4(nome4);
         dieta.setNome5(nome5);
         dieta.setNome6(nome6);
         dieta.setTipo(tipo);
-
         new com.utfpr.crud.CrudDieta().persist(dieta);
     }
-  
 
-    public void remove(com.utfpr.entidades.Alimentos dieta) {
-        new com.utfpr.crud.CrudDieta().remove(dieta);
+    public void remove(com.utfpr.entidades.Alimentos alim) {
+        new com.utfpr.crud.CrudDieta().remove(alim);
 
     }
 
     public void merge() {
-        com.utfpr.entidades.Alimentos dieta;
-        dieta=new com.utfpr.entidades.Alimentos();
-        dieta.setId(id);
-        dieta.setNome1(nome1);
-        dieta.setNome2(nome2);
-        dieta.setNome3(nome3);
-        dieta.setNome3(nome3);
-        dieta.setNome4(nome4);
-        dieta.setNome5(nome5);
-        dieta.setNome6(nome6);
-        dieta.setTipo(tipo);
-        new com.utfpr.crud.CrudDieta().update(dieta);
+        com.utfpr.entidades.Alimentos alim;
+        alim=new com.utfpr.entidades.Alimentos();
+        alim.setId(id);
+        alim.setNome1(nome1);
+        alim.setNome2(nome2);
+        alim.setNome3(nome3);
+        alim.setNome4(nome4);
+        alim.setNome5(nome5);
+        alim.setNome6(nome6);
+        alim.setTipo(tipo);        
+        new com.utfpr.crud.CrudDieta().update(alim);
 
     }
 
-    public void load_data(com.utfpr.entidades.Alimentos dieta) {
-        this.id = dieta.getId();
-        this.nome1 = dieta.getNome1();
-        this.nome2 = dieta.getNome2();
-        this.nome3 = dieta.getNome3();
-        this.nome4 = dieta.getNome4();
-        this.nome5 = dieta.getNome5();
-        this.nome6 = dieta.getNome6();
-        this.tipo=dieta.getTipo();
+    public void load_data(com.utfpr.entidades.Alimentos alim) {
+        this.id = alim.getId();
+        this.nome1 = alim.getNome1();
+        this.nome2 = alim.getNome2();
+        this.nome3 = alim.getNome3();
+        this.nome4 = alim.getNome4();
+        this.nome5 = alim.getNome5();
+        this.nome6 = alim.getNome6();
+        this.tipo=alim.getTipo();
+        
 
     }
-
     public Collection<Alimentos> getAll() {
         return new com.utfpr.crud.CrudDieta().getAll();
     }

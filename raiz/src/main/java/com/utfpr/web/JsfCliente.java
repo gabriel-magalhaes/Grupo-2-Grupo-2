@@ -40,6 +40,9 @@ public class JsfCliente implements Serializable{
     private float peso;
     public String senha;
     private String emailOriginal;
+    private double imc;
+    protected int sex;
+    protected double percentual;
 
     public float getPeso() {
         return peso;
@@ -185,6 +188,40 @@ public class JsfCliente implements Serializable{
         this.senha = senha;
     }
 
+    public double getImc() {
+        return imc;
+    }
+
+    public void setImc(double imc) {
+        this.imc = imc;
+    }
+
+    public String getEmailOriginal() {
+        return emailOriginal;
+    }
+
+    public void setEmailOriginal(String emailOriginal) {
+        this.emailOriginal = emailOriginal;
+    }
+
+    public int getSex() {
+        return sex;
+    }
+
+    public void setSex(int sex) {
+        this.sex = sex;
+    }
+
+    public double getPercentual() {
+        return percentual;
+    }
+
+    public void setPercentual(double percentual) {
+        this.percentual = percentual;
+    }
+    
+    
+
     @PostConstruct
     public void init() {
         String email = (String)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("email");
@@ -274,5 +311,63 @@ public class JsfCliente implements Serializable{
             FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
         }
         return "index";
+    }
+    
+    public double calcularImc(Cliente cliente){
+        
+        cliente = new Cliente();
+        imc = (double)this.getImc();
+        imc =  (this.getPeso()) / (this.getAltura() * this.getAltura());
+        return imc;
+    }
+    
+      public String statusImc(Cliente cliente){
+        
+        cliente = new Cliente();
+        
+        if("feminino".equals(this.getSexo())){
+            
+            if (imc < 19.1){
+                return "Abaixo do peso";
+            }else if ((imc > 19.1) && (imc < 25.8)){
+                 return "Peso normal";
+                }else if ((imc > 25.8) && (imc < 27.3)){
+                      return "Marginalmente acima do peso";
+                    }else if ((imc > 27.3) && (imc < 32.3)){
+                           return "Acima do peso ideal";
+                        }else
+                            return "Obeso";
+            
+            }else if("masculino".equals(this.getSexo())){
+           
+                if (imc < 20.7){
+                    return "Abaixo do peso";
+                }else if ((imc > 20.7) && (imc < 26.4)){
+                     return "Peso normal";
+                    }else if ((imc > 26.4) && (imc < 27.8)){
+                          return "Marginalmente acima do peso";
+                        }else if ((imc > 27.8) && (imc < 31.1)){
+                               return "Acima do peso ideal";
+                            }else
+                                return "Obeso";
+                }
+                
+                return "Valor nao encontrado";
+        }
+    
+      public double calcularPercentualGordura(Cliente cliente){
+        cliente = new Cliente();
+        int idade = cliente.calcularIdade(this.nascimento, new Date());
+        
+        
+        if("feminino".equals(this.getSexo())){
+            sex = 0;
+        } else if("masculino".equals(this.getSexo())){
+            sex = 1;
+        } 
+        
+        percentual = (((1.20 * this.getImc()) + (0.23 * idade) - (10.8 * sex)))-5.4;
+        //status = statusGordura(cliente.getIdade(),percentual, sexo);
+        return percentual;
     }
 }

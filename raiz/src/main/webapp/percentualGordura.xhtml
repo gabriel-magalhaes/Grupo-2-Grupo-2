@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>MaxMove Percentual de Gordura</title>
+       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+       <!-- CSS  -->
+       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+       <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+       <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</h:head>
+<h:body>
+    <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+        <a id="logo-container" href="http://localhost:8084/MaxMove/principalCliente.xhtml" class="brand-logo"><img src="logo.jpg" /></a>
+    </div>
+  </nav>
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br/><br/>
+        <h1 class="header center light col s12 white-text shadow-text">MaxMove</h1>
+        <div class="row center">
+          <h5 class="header col s12 white-text shadow-text">Cálculo do Percentual de Gordura</h5>
+        </div>
+        <br/><br/>
+      </div>
+    </div>
+    <div class="parallax"><img src="img4.jpg" alt="Percentual de gordura"/></div>
+  </div>
+  <div class="container">
+    <div class="section">
+        <h:form>
+            <h3>Seu percentual de gordura é 
+                <h:outputText value="#{jsfCliente.calcularPercentualGordura(cliente)}"/>
+            </h3>
+        </h:form>
+        <h5>Confira na tabela abaixo em que categoria você se encaixa, e tome as devidas providências com o auxílio da equipe MaxMove!</h5>
+         <center><img src="tabela-porcentagem-gordura.jpg"/></center> 
+     </div>
+       <!--  Scripts-->
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="js/materialize.js"></script>
+        <script src="js/init.js"></script>
+   </div>
+</h:body>
+</html>

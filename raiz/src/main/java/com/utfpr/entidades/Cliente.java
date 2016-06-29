@@ -5,12 +5,12 @@ import javax.persistence.Id;
 import java.util.Calendar;
 import java.util.Date;
 
-/**
+/*
  * Created by laisa on 12/06/2016.
  */
 @Entity
 public class Cliente extends Pessoa {
-
+ 
 
     private float altura;
     private float peso;
@@ -59,8 +59,8 @@ public class Cliente extends Pessoa {
         super.setNascimento(nascimento);
         this.idade = calcularIdade(nascimento, new Date());
     }
-
-    protected int calcularIdade(Date nascimento, Date atual) {
+    
+    public int calcularIdade(Date nascimento, Date atual) {
         Calendar calNasc = Calendar.getInstance();
         calNasc.setTime(nascimento);
         Calendar calAtual = Calendar.getInstance();
@@ -77,4 +77,6 @@ public class Cliente extends Pessoa {
         }
         return anos;
     }
+    
+     
 }

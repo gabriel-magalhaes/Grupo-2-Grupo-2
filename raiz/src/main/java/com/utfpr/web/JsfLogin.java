@@ -1,7 +1,9 @@
 package com.utfpr.web;
 
 import com.utfpr.crud.CrudCliente;
+import com.utfpr.crud.CrudPersonal;
 import com.utfpr.entidades.Cliente;
+import com.utfpr.entidades.Personal;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -21,14 +23,6 @@ public class JsfLogin implements Serializable {
     private Cliente cli;
     private double basal;
 
-    public double getBasal() {
-        return basal;
-    }
-
-    public void setBasal(double basal) {
-        this.basal = basal;
-    }
-    
     public String getEmail() {
         return email;
     }
@@ -53,22 +47,33 @@ public class JsfLogin implements Serializable {
         this.cli = cli;
     }
 
-    
-    public String entrar() {
+    public double getBasal() {
+        return basal;
+    }
+
+    public void setBasal(double basal) {
+        this.basal = basal;
+    }
+       
+    public String entrarCliente() {
         Cliente cliente = new CrudCliente().validarCliente(email, senha);
         if (cliente != null) {
-            cli =cliente;
             FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("email", email);
-            if((cliente.getEmail()).equalsIgnoreCase("heydi@gmail.com")){ //é admin
-                 return "admin?faces-redirect=true";
-            }
             return "principalCliente?faces-redirect=true";
-         
         }
         return "login?faces-redirect=true";
     }
-
-     public void calculoBasal() {      
+    
+    public String entrarPersonal() {
+        Personal personal = new CrudPersonal().validarPersonal(email, senha);
+        if (personal != null) {
+            FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("email", email);
+            return "principalPersonal?faces-redirect=true";
+        }
+        return "login?faces-redirect=true";
+    }
+    
+    public void calculoBasal() {      
         if ("feminino".equals(cli.getSexo())) {
             basal = 66.47 + (13.75 * cli.getPeso()) + (5 * cli.getAltura()) - (6.76 * cli.getIdade());
             
@@ -76,8 +81,8 @@ public class JsfLogin implements Serializable {
             basal = 655.1 + (9.56 * cli.getPeso()) + (1.85 * cli.getAltura()) - (4.67 * cli.getIdade());
            
         }
-        
     }
+    
     public String sair() {
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
         return "login?faces-redirect=true";

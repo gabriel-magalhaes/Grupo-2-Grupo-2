@@ -16,8 +16,8 @@ import javax.persistence.Persistence;
  * @author Marcele
  */
 public class CrudDieta {
-
-    EntityManagerFactory emf = Persistence.createEntityManagerFactory("max_move_unit");
+    
+     EntityManagerFactory emf = Persistence.createEntityManagerFactory("max_move_unit");
 
     public void persist(Object object) {
         EntityManager em = emf.createEntityManager();
@@ -32,13 +32,13 @@ public class CrudDieta {
             em.close();
         }
     }
-     public void remove(com.utfpr.entidades.Alimentos dieta) {
+    public void remove(com.utfpr.entidades.Alimentos alimento) {
         EntityManager em = emf.createEntityManager();
         try {
             em.getTransaction().begin();
-            com.utfpr.entidades.Alimentos diet;
-            diet=em.find(com.utfpr.entidades.Alimentos.class, dieta.getId());
-            em.remove(diet);
+            com.utfpr.entidades.Alimentos alim;
+            alim=em.find(com.utfpr.entidades.Alimentos.class, alimento.getId());
+            em.remove(alim);
             em.getTransaction().commit();
         } catch (Exception e) {
             Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", e);
@@ -47,21 +47,20 @@ public class CrudDieta {
             em.close();
         }
     }
-      public void update(com.utfpr.entidades.Alimentos dieta) {
+      public void update(com.utfpr.entidades.Alimentos alimento) {
         EntityManager em = emf.createEntityManager();
         try {
             em.getTransaction().begin();
-            com.utfpr.entidades.Alimentos diet;
-            diet=em.find(com.utfpr.entidades.Alimentos.class, dieta.getId());
-            diet.setNome1(dieta.getNome1());
-            diet.setNome2(dieta.getNome2());
-            diet.setNome3(dieta.getNome3());
-            diet.setNome4(dieta.getNome4());
-            diet.setNome5(dieta.getNome5());
-            diet.setNome6(dieta.getNome6());
-           
-            diet.setTipo(dieta.getTipo());
-            em.merge(diet);
+            com.utfpr.entidades.Alimentos alim;
+            alim=em.find(com.utfpr.entidades.Alimentos.class, alimento.getId());
+            alim.setNome1(alimento.getNome1());
+            alim.setNome2(alimento.getNome2());
+            alim.setNome3(alimento.getNome3());
+            alim.setNome4(alimento.getNome4());
+            alim.setNome5(alimento.getNome5());
+            alim.setNome6(alimento.getNome6());
+            alim.setTipo(alimento.getTipo());
+            em.merge(alim);
             em.getTransaction().commit();
         } catch (Exception e) {
             Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", e);
@@ -83,6 +82,4 @@ public class CrudDieta {
         }
     }
     
-    
 }
-

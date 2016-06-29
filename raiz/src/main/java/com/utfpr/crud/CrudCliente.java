@@ -31,7 +31,7 @@ public class CrudCliente {
     public java.util.Collection<Cliente> getAll() {
         EntityManager em = emf.createEntityManager();
         try {
-            return em.createNamedQuery("Treino.findAll").getResultList();
+            return em.createNamedQuery("Cliente.findAll").getResultList();
         } catch (Exception e) {
             Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", e);
             //em.getTransaction().rollback();
@@ -58,7 +58,7 @@ public class CrudCliente {
         clienteOriginal.setSexo(cliente.getSexo());
         clienteOriginal.setTelefone(cliente.getTelefone());
         clienteOriginal.setCelular(cliente.getCelular());
-        clienteOriginal.setNascimento(cliente.getNascimento());
+        clienteOriginal.setNascimentoPersonal(cliente.getNascimentoPersonal());
         em.getTransaction().commit();
         return cliente;
     }
