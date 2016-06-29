@@ -13,7 +13,7 @@ Na pasta `raiz/src` execute o comando
 mvn compile tomcat7:run
 ```
 
-Após finalizada a execução acesse o link <http://localhost:8080/MaxMove/>
+Após finalizada a execução acesse o link <http://localhost:8084/MaxMove/>
 
 ## Rodando os testes
 
