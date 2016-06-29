@@ -38,9 +38,9 @@
         <h:form>
             <center> <h3>Resultados  IMC</h3> </center>
             
-            <h4>O seu valor de IMC é <h:outputText value="#{jsfCliente.calcularImc(cliente)}"/></h4>
+            <h4>O seu valor de IMC é <h:outputText value="#{jsfCliente.getImc()}"/></h4>
             <h4>Resultado de sua categoria IMC, isto significa que você está: </h4>
-              <h4><center><h:outputText value="#{jsfCliente.statusImc(cliente)}"/></center></h4>
+              <h4><center><h:outputText value="#{jsfCliente.statusImc()}"/></center></h4>
                 <!-- <img src=""/> --> 
                 <center><img src="imc.JPG"/></center>    
             

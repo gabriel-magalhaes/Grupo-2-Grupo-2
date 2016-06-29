@@ -59,6 +59,10 @@ public class CrudCliente {
         clienteOriginal.setTelefone(cliente.getTelefone());
         clienteOriginal.setCelular(cliente.getCelular());
         clienteOriginal.setNascimentoPersonal(cliente.getNascimentoPersonal());
+        clienteOriginal.setNascimento(cliente.getNascimento());
+        clienteOriginal.setBasal(cliente.getBasal());
+        clienteOriginal.setImc(cliente.getImc());
+        clienteOriginal.setPercentual(cliente.getPercentual());
         em.getTransaction().commit();
         return cliente;
     }
@@ -67,7 +71,6 @@ public class CrudCliente {
     {
         EntityManager em = emf.createEntityManager();
         Cliente cliente =  em.find(Cliente.class, email);
-        System.out.println("(email="+email+"), (senha="+senha+"), (cliente.email="+cliente.email+"), (cliente.senha="+cliente.senha);
         if(cliente == null){
             return null;
         }

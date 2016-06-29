@@ -17,10 +17,10 @@ import java.util.Map;
 
 /**
  * Created by laisa on 26/06/2016.
- */ 
+ */
 @ManagedBean
 @ViewScoped
-public class JsfCliente implements Serializable{
+public class JsfCliente implements Serializable {
     public long id;
     public String nome;
     public String email;
@@ -41,8 +41,8 @@ public class JsfCliente implements Serializable{
     public String senha;
     private String emailOriginal;
     private double imc;
-    protected int sex;
     protected double percentual;
+    private double basal;
 
     public float getPeso() {
         return peso;
@@ -204,14 +204,6 @@ public class JsfCliente implements Serializable{
         this.emailOriginal = emailOriginal;
     }
 
-    public int getSex() {
-        return sex;
-    }
-
-    public void setSex(int sex) {
-        this.sex = sex;
-    }
-
     public double getPercentual() {
         return percentual;
     }
@@ -219,14 +211,15 @@ public class JsfCliente implements Serializable{
     public void setPercentual(double percentual) {
         this.percentual = percentual;
     }
-    
-    
+
+    public double getBasal() {
+        return basal;
+    }
 
     @PostConstruct
     public void init() {
-        String email = (String)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("email");
+        String email = (String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("email");
         if (email != null) {
-            System.out.println(email);
             Cliente cliente = new CrudCliente().get(email);
             this.nome = cliente.getNome();
             this.email = cliente.getEmail();
@@ -238,6 +231,9 @@ public class JsfCliente implements Serializable{
             this.peso = cliente.getPeso();
             this.telefone = cliente.getTelefone();
             this.celular = cliente.getCelular();
+            this.basal = cliente.getBasal();
+            this.percentual = cliente.getPercentual();
+            this.imc = cliente.getImc();
             Endereco endereco = cliente.getEnd();
             this.rua = endereco.getRua();
             this.numero = endereco.getNumero();
@@ -250,9 +246,8 @@ public class JsfCliente implements Serializable{
         }
     }
 
-    public String cadastrar() {
+    private Cliente createClienteObj() {
         Cliente cliente = new Cliente();
-        Endereco endereco = new Endereco();
         cliente.setNome(nome);
         cliente.setEmail(email);
         cliente.setNascimento(nascimento);
@@ -262,6 +257,14 @@ public class JsfCliente implements Serializable{
         cliente.setTelefone(telefone);
         cliente.setCelular(celular);
         cliente.setSenha(senha);
+        cliente.calcularBasal();
+        cliente.calcularImc();
+        cliente.calcularPercentualGordura();
+        return cliente;
+    }
+
+    private Endereco createEnderecoObj() {
+        Endereco endereco = new Endereco();
         endereco.setRua(rua);
         endereco.setNumero(numero);
         endereco.setBairro(bairro);
@@ -270,31 +273,21 @@ public class JsfCliente implements Serializable{
         endereco.setCep(cep);
         endereco.setPais(pais);
         endereco.setComplemento(complemento);
+        return endereco;
+    }
+
+    public String cadastrar() {
+        Cliente cliente = createClienteObj();
+        Endereco endereco = createEnderecoObj();
         endereco = new CrudEndereco().persist(endereco);
         cliente.setEnd(endereco);
         new CrudCliente().persist(cliente);
         return "calculoCardiaco";
     }
+
     public String atualizar() {
-        Cliente cliente = new Cliente();
-        Endereco endereco = new Endereco();
-        cliente.setNome(nome);
-        cliente.setEmail(email);
-        cliente.setNascimento(nascimento);
-        cliente.setSexo(sexo);
-        cliente.setAltura(altura);
-        cliente.setPeso(peso);
-        cliente.setTelefone(telefone);
-        cliente.setCelular(celular);
-        cliente.setSenha(senha);
-        endereco.setRua(rua);
-        endereco.setNumero(numero);
-        endereco.setBairro(bairro);
-        endereco.setCidade(cidade);
-        endereco.setEstado(estado);
-        endereco.setCep(cep);
-        endereco.setPais(pais);
-        endereco.setComplemento(complemento);
+        Cliente cliente = createClienteObj();
+        Endereco endereco = createEnderecoObj();
         CrudCliente crudCliente = new CrudCliente();
         long endId = crudCliente.get(emailOriginal).getEnd().id;
         endereco.setId(endId);
@@ -304,70 +297,18 @@ public class JsfCliente implements Serializable{
         return "principalCliente?faces-redirect=true";
     }
 
-    public String excluir(){
-        String email = (String)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("email");
+    public String excluir() {
+        String email = (String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("email");
         if (email != null) {
             new CrudCliente().excluir(email);
             FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
         }
         return "index";
     }
-    
-    public double calcularImc(Cliente cliente){
-        
-        cliente = new Cliente();
-        imc = (double)this.getImc();
-        imc =  (this.getPeso()) / (this.getAltura() * this.getAltura());
-        return imc;
+
+    public String statusImc() {
+        Cliente cliente = createClienteObj();
+        return cliente.getStatusImc();
     }
-    
-      public String statusImc(Cliente cliente){
-        
-        cliente = new Cliente();
-        
-        if("feminino".equals(this.getSexo())){
-            
-            if (imc < 19.1){
-                return "Abaixo do peso";
-            }else if ((imc > 19.1) && (imc < 25.8)){
-                 return "Peso normal";
-                }else if ((imc > 25.8) && (imc < 27.3)){
-                      return "Marginalmente acima do peso";
-                    }else if ((imc > 27.3) && (imc < 32.3)){
-                           return "Acima do peso ideal";
-                        }else
-                            return "Obeso";
-            
-            }else if("masculino".equals(this.getSexo())){
-           
-                if (imc < 20.7){
-                    return "Abaixo do peso";
-                }else if ((imc > 20.7) && (imc < 26.4)){
-                     return "Peso normal";
-                    }else if ((imc > 26.4) && (imc < 27.8)){
-                          return "Marginalmente acima do peso";
-                        }else if ((imc > 27.8) && (imc < 31.1)){
-                               return "Acima do peso ideal";
-                            }else
-                                return "Obeso";
-                }
-                
-                return "Valor nao encontrado";
-        }
-    
-      public double calcularPercentualGordura(Cliente cliente){
-        cliente = new Cliente();
-        int idade = cliente.calcularIdade(this.nascimento, new Date());
-        
-        
-        if("feminino".equals(this.getSexo())){
-            sex = 0;
-        } else if("masculino".equals(this.getSexo())){
-            sex = 1;
-        } 
-        
-        percentual = (((1.20 * this.getImc()) + (0.23 * idade) - (10.8 * sex)))-5.4;
-        //status = statusGordura(cliente.getIdade(),percentual, sexo);
-        return percentual;
-    }
+
 }
