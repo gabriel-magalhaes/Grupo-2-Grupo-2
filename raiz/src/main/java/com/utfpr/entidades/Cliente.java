@@ -147,7 +147,7 @@ public class Cliente extends Pessoa {
         } else if ("masculino".equals(this.sexo)) {
             sex = 1;
         }
-        this.percentual = (((1.20 * this.imc) + (0.23 * this.idade) - (10.8 * sex))) - 5.4;
+        this.percentual = (((1.20 * this.imc) + (0.23 * this.idade) - (10.8 * sex)) - 5.4);
         //status = statusGordura(cliente.getIdade(),percentual, sexo);
     }
     

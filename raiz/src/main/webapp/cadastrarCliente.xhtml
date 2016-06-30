@@ -1,53 +1,133 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html
-        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
-<h:head>
-    <title>MaxMove Cliente</title>
-</h:head>
-<h:body>
-    <h:form> 
-        Nome:
-        <h:inputText  value="#{jsfCliente.nome}"/><br></br>
-        Email:
-        <h:inputText  value="#{jsfCliente.email}" /><br></br>
-        Senha:
-        <h:inputText  value="#{jsfCliente.senha}" /><br></br>
-        Data de Nascimento:
-        <h:inputText  value="#{jsfCliente.nascimento}">
-            <f:convertDateTime pattern="dd/mm/yyyy"/>
-        </h:inputText><br></br>
-        Sexo:
-        <h:inputText  value="#{jsfCliente.sexo}"/><br></br>
-        Altura:
-        <h:inputText  value="#{jsfCliente.altura}" /><br></br>
-        Peso:
-        <h:inputText  value="#{jsfCliente.peso}" /><br></br>
-        Rua:
-        <h:inputText  value="#{jsfCliente.rua}"/><br></br>
-        Numero:
-        <h:inputText  value="#{jsfCliente.numero}" /><br></br>
-        Complemento:
-        <h:inputText  value="#{jsfCliente.complemento}" /><br></br>
-        Bairro:
-        <h:inputText  value="#{jsfCliente.bairro}"/><br></br>
-        Cidade:
-        <h:inputText  value="#{jsfCliente.cidade}" /><br></br>
-        Estado:
-        <h:inputText  value="#{jsfCliente.estado}" /><br></br>
-        CEP:
-        <h:inputText  value="#{jsfCliente.cep}" /><br></br>
-        Pais:
-        <h:inputText  value="#{jsfCliente.pais}" /><br></br>
-        Telefone:
-        <h:inputText  value="#{jsfCliente.telefone}" /><br></br>
-        Celular:
-        <h:inputText  value="#{jsfCliente.celular}" /><br></br>
-        <h:messages></h:messages>
-        <h:commandButton value="Cadastrar" action="#{jsfCliente.cadastrar()}"></h:commandButton>
-    </h:form>
-</h:body>
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>CLIENTE</title>
+        <script type="text/javascript" src="js/javascript.js"></script>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+
+        <script type="text/javascript" src="js/javascript.js"></script>
+
+        <!-- CSS  -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    </h:head>
+    <h:body>
+        <nav class="white" role="navigation">
+            <div class="nav-wrapper container">
+                <a id="logo-container" href="#" class="brand-logo"><img src="logo.jpg" /></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="http://localhost:8084/MaxMove/login.xhtml">Login</a></li>
+                </ul>
+                <ul id="nav-mobile" class="side-nav">
+                    <li><a href="#"></a></li>
+                </ul>
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+            </div>
+        </nav>
+        <div id="index-banner" class="parallax-container">
+            <div class="section no-pad-bot">
+                <div class="container">
+                    <br/><br/>
+                    <h1 class="header center white-text shadow-text">MaxMove</h1>
+                    <div class="row center">
+                        <h5 class="header col s12 white-text shadow-text">Cadastre-se!</h5>
+                    </div>
+                    <br/><br/>
+                </div>
+            </div>
+            <div class="parallax"><img src="img1.jpg" alt="Cliente MaxMove"/></div>
+        </div>
+        <div class="container">
+            <div class="section">
+                <h:form> 
+                    <div class="row">
+                            Nome:
+                            <h:inputText  value="#{jsfCliente.nome}"/>
+                            Email:
+                            <h:inputText  value="#{jsfCliente.email}" />
+                        <div class="input-field col s6 m4">
+                            Senha:
+                            <h:inputText  value="#{jsfCliente.senha}" />
+                        </div>
+                        <div class="input-field col s6 m2">
+                            Data de Nascimento:
+                            <h:inputText  value="#{jsfCliente.nascimento}">
+                                <f:convertDateTime pattern="dd/mm/yyyy"/>
+                            </h:inputText>
+                        </div>
+                        <div class="input-field col s6 m4">
+                            Sexo:
+                            <h:inputText  value="#{jsfCliente.sexo}"/>
+                        </div>
+                        <div class="input-field col s6 m2">
+                            Altura:
+                            <h:inputText  value="#{jsfCliente.altura}" />
+                        </div>
+                        <div class="input-field col s6 m4">
+                            
+                            Rua:
+                            <h:inputText  value="#{jsfCliente.rua}"/>
+                        </div>
+                        <div class="input-field col s6 m2">
+                            Peso:
+                            <h:inputText  value="#{jsfCliente.peso}" />
+                        </div>
+                        <div class="input-field col s6 m4">
+                            Numero:
+                            <h:inputText  value="#{jsfCliente.numero}" />
+                        </div>
+                        <div class="input-field col s6 m2">
+                            Complemento:
+                            <h:inputText  value="#{jsfCliente.complemento}" />
+                        </div>
+                        <div class="input-field col s6 m4">
+                            Bairro:
+                            <h:inputText  value="#{jsfCliente.bairro}"/>
+                        </div>
+                        <div class="input-field col s6 m2">
+                            
+                            Estado:
+                            <h:inputText  value="#{jsfCliente.estado}" />
+                        </div>
+                        <div class="input-field col s6 m4">
+                            Cidade:
+                            <h:inputText  value="#{jsfCliente.cidade}" />
+                        </div>
+                        <div class="input-field col s6 m2">
+                            CEP:
+                            <h:inputText  value="#{jsfCliente.cep}" />
+                        </div>
+                        <div class="input-field col s6 m4">
+                            Pais:
+                            <h:inputText  value="#{jsfCliente.pais}" />
+                        </div>
+                        <div class="input-field col s6 m2">
+                            Telefone:
+                            <h:inputText  value="#{jsfCliente.telefone}" />
+                        </div>
+                        <div class="input-field col s6 m4">
+                            Celular:
+                            <h:inputText  value="#{jsfCliente.celular}" />
+                        </div>
+                        <h:messages></h:messages>
+                        <div class="input-field col s6 m2">
+                            <h:commandButton value="Cadastrar" action="#{jsfCliente.cadastrar()}"></h:commandButton>
+                        </div>
+                        
+                    </div>
+                </h:form>
+            </div>
+        </div>
+
+        <!--  Scripts-->
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="js/materialize.js"></script>
+        <script src="js/init.js"></script>
+        <script type="text/javascript" src="js/javascript.js"></script>
+    </h:body>
 </html>

@@ -1,101 +1,162 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html
-        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html">
-<h:head>
-    <title>MaxMove Cliente</title>
-</h:head>
-<h:body> 
-    <h:form>
-        <h:commandButton value="Atualizar" action="crudCliente?faces-redirect=true"></h:commandButton>
-        <h:commandButton value="Excluir Conta" action="#{jsfCliente.excluir()}"></h:commandButton>
-        <h:commandButton value="Logout" action="#{jsfLogin.sair()}"></h:commandButton>
-    </h:form>
-    <!--Comando para o calcular o IMC -->
-    <h:form>
-        <h2>Calcular o IMC e Porcentagem de Gordura Corporal</h2>
-       
-        <!---->
-        <h:commandButton value="Calcular" action="calcularImc?faces-redirect=true"></h:commandButton>
-    </h:form>
-     <h:form>
-        <h2>Dietas Recomendadas</h2>        
-         <h:dataTable value="#{jsfDieta.all}" var="dieta">
-                    <h:column>
-                        <h:outputText value="#{dieta.nome1}"/>
-                    </h:column>
-                    <h:column>
-                        <h:outputText value="#{dieta.nome2}"/>
-                    </h:column>
-                    <h:column>
-                        <h:outputText value="#{dieta.nome3}"/>
-                    </h:column>
-                    <h:column>
-                        <h:outputText value="#{dieta.nome4}"/>
-                    </h:column>
-                    <h:column>
-                        <h:outputText value="#{dieta.nome5}"/>
-                    </h:column>
-                    <h:column>
-                        <h:outputText value="#{dieta.nome6}"/>
-                    </h:column>
-                    <h:column>
-                        <h:outputText value="#{dieta.tipo}"/>
-                    </h:column>
-                </h:dataTable>
-            </h:form>
-    
-     <h2>Calculo Basal</h2>
-    <h:form>
-         <h:commandButton value="Calcular" action="calculoBasal?faces-redirect=true"></h:commandButton>
-    </h:form>
-    <h:form>
-        <h2>Treinos Recomendados</h2>        
-         <h:dataTable value="#{jsfTreino.all}" var="exer">
-                    <h:column>
-                        <h:outputText value="#{exer.exercicio1}"/>
-                    </h:column>
-                    <h:column>
-                        <h:outputText value="#{exer.repeticao1}"/>
-                    </h:column>
-                    <h:column>
-                        <h:outputText value="#{exer.exercicio2}"/>
-                    </h:column>
-                    <h:column>
-                        <h:outputText value="#{exer.repeticao2}"/>
-                    </h:column>
-                    <h:column>
-                        <h:outputText value="#{exer.exercicio3}"/>
-                    </h:column>
-                    <h:column>
-                        <h:outputText value="#{exer.repeticao3}"/>
-                    </h:column>
-                    <h:column>
-                        <h:outputText value="#{exer.exercicio4}"/>
-                    </h:column>
-                    <h:column>
-                        <h:outputText value="#{exer.repeticao4}"/>
-                    </h:column>
-                    <h:column>
-                        <h:outputText value="#{exer.exercicio5}"/>
-                    </h:column>
-                    <h:column>
-                        <h:outputText value="#{exer.repeticao5}"/>
-                    </h:column>
-                    <h:column>
-                        <h:outputText value="#{exer.exercicio6}"/>
-                    </h:column>
-                    <h:column>
-                        <h:outputText value="#{exer.repeticao6}"/>
-                    </h:column>
-                    <h:column>
-                        <h:outputText value="#{exer.tipo}"/> 
-                    </h:column>
-                   
-                </h:dataTable>
-            </h:form>
-</h:body>
-</html>
+    <h:head>
+        <title>MaxMove Cliente</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+        <!-- CSS  -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    </h:head>
+    <h:body>
+        <nav class="white" role="navigation">
+            <div class="nav-wrapper container">
+                <a id="logo-container" href="http://localhost:8084/MaxMove/index.xhtml" class="brand-logo"><img src="logo.jpg" /></a>
+            </div>
+        </nav>
+        <div id="index-banner" class="parallax-container">
+            <div class="section no-pad-bot">
+                <div class="container">
+                    <br/><br/>
+                    <h1 class="header center light col s12 white-text shadow-text">MaxMove</h1>
+                    <div class="row center">
+                        <h5 class="header col s12 white-text shadow-text">Bem Vindo!</h5>
+                    </div>
+                    <br/><br/>
+                </div>
+            </div>
+            <div class="parallax"><img src="img6.jpg" alt="Unsplashed background img 1"/></div>
+        </div>
+        <div class="container">
+            <div class="section">
+                <h:form>
+                    <h:commandButton value="Atualizar" action="crudCliente?faces-redirect=true"></h:commandButton>
+                    <h:commandButton value="Excluir Conta" action="#{jsfCliente.excluir()}"></h:commandButton>
+                    <h:commandButton value="Logout" action="#{jsfLogin.sair()}"></h:commandButton>
+                </h:form>
+                <!--Comando para o calcular o IMC -->
+                <h:form>
+                    <h3 class="teal-text">Calcular o IMC e Porcentagem de Gordura Corporal</h3>
+                    <!---->
+                    <h:commandButton value="Calcular" action="calcularImc?faces-redirect=true"></h:commandButton>
+                </h:form>
 
+                <h2 class="teal-text">Calculo Basal</h2>
+                <h:form>
+                    <h:commandButton value="Calcular" action="calculoBasal?faces-redirect=true"></h:commandButton>
+                </h:form>
+                <h:form>
+                    <div> 
+                        <h4>Legendas:</h4>
+                        <h5 class="teal-text">TIPO1 - Emagrecimento</h5>
+                        <h5 class="teal-text">TIPO2 - Hipertrofia</h5>
+                        <h5 class="teal-text">TIPO3 - Cardíaco</h5></div>
+                    <h2>Dietas Recomendadas</h2>
+
+                    <h:dataTable value="#{jsfDieta.all}" var="dieta">
+                        <h:column>
+                            <h:outputText value="#{dieta.nome1}"/>
+                        </h:column>
+                        <h:column>
+                            <h:outputText value="#{dieta.nome2}"/>
+                        </h:column>
+                        <h:column>
+                            <h:outputText value="#{dieta.nome3}"/>
+                        </h:column>
+                        <h:column>
+                            <h:outputText value="#{dieta.nome4}"/>
+                        </h:column>
+                        <h:column>
+                            <h:outputText value="#{dieta.nome5}"/>
+                        </h:column>
+                        <h:column>
+                            <h:outputText value="#{dieta.nome6}"/>
+                        </h:column>
+                        <h:column>
+                            <h:outputText value="#{dieta.tipo}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:form>
+                <h:form>
+                    <h2>Treinos Recomendados</h2>        
+                    <h:dataTable value="#{jsfTreino.all}" var="exer">
+                        <h:column>
+                            <h:outputText value="#{exer.exercicio1}"/>
+                        </h:column>
+                        <h:column>
+                            <h:outputText value="#{exer.repeticao1}"/>
+                        </h:column>
+                        <h:column>
+                            <h:outputText value="#{exer.exercicio2}"/>
+                        </h:column>
+                        <h:column>
+                            <h:outputText value="#{exer.repeticao2}"/>
+                        </h:column>
+                        <h:column>
+                            <h:outputText value="#{exer.exercicio3}"/>
+                        </h:column>
+                        <h:column>
+                            <h:outputText value="#{exer.repeticao3}"/>
+                        </h:column>
+                        <h:column>
+                            <h:outputText value="#{exer.exercicio4}"/>
+                        </h:column>
+                        <h:column>
+                            <h:outputText value="#{exer.repeticao4}"/>
+                        </h:column>
+                        <h:column>
+                            <h:outputText value="#{exer.exercicio5}"/>
+                        </h:column>
+                        <h:column>
+                            <h:outputText value="#{exer.repeticao5}"/>
+                        </h:column>
+                        <h:column>
+                            <h:outputText value="#{exer.exercicio6}"/>
+                        </h:column>
+                        <h:column>
+                            <h:outputText value="#{exer.repeticao6}"/>
+                        </h:column>
+                        <h:column>
+                            <h:outputText value="#{exer.tipo}"/> 
+                        </h:column>
+                    </h:dataTable>
+                </h:form>
+                
+            </div>
+        </div>
+        <!--  Scripts-->
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="js/materialize.js"></script>
+        <script src="js/init.js"></script>
+        <footer class="page-footer teal">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="white-text"></h5>
+                        <p class="grey-text text-lighten-4"></p>
+                    </div>
+                    <div class="col l3 s12">
+                        <h5 class="white-text"></h5>
+                        <ul>
+
+                        </ul>
+                    </div>
+                    <div class="col l3 s12">
+                        <h5 class="white-text"></h5>
+                        <ul>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+
+            </div>
+        </footer>
+    </h:body>
+</html>

@@ -36,11 +36,12 @@
   <div class="container">
     <div class="section">
         <h:form>
-            <center> <h3>Resultados  IMC</h3> </center>
-            
-            <h4>O seu valor de IMC é <h:outputText value="#{jsfCliente.getImc()}"/></h4>
+            <center> <h3 class="teal-text">Resultados  IMC</h3> </center>
+                   
+            <br></br><h4 class="center">IMC é uma sigla utilizada para Índice de Massa Corporal. O Índice de Massa Corporal é uma medida utilizada para medir a obesidade adotada pela Organização Mundial de Saúde (OMS). É o padrão internacional para avaliar o grau de obesidade</h4>
+            <br></br><h4>O seu valor de IMC é <h:outputText value="#{jsfCliente.getImc()}"/></h4>
             <h4>Resultado de sua categoria IMC, isto significa que você está: </h4>
-              <h4><center><h:outputText value="#{jsfCliente.statusImc()}"/></center></h4>
+              <h3 class="center"><h:outputText class="teal-text" value="#{jsfCliente.statusImc()}"/></h3>
                 <!-- <img src=""/> --> 
                 <center><img src="imc.JPG"/></center>    
             
@@ -48,10 +49,36 @@
             <center><h:commandButton value="Calcular" action="percentualGordura?faces-redirect=true"></h:commandButton></center>
         </h:form>
      </div>
+      </div>
        <!--  Scripts-->
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script src="js/materialize.js"></script>
         <script src="js/init.js"></script>
-   </div>
+  
+    <footer class="page-footer teal">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="white-text"></h5>
+                        <p class="grey-text text-lighten-4"></p>
+                    </div>
+                    <div class="col l3 s12">
+                        <h5 class="white-text"></h5>
+                        <ul>
+                            
+                        </ul>
+                    </div>
+                    <div class="col l3 s12">
+                        <h5 class="white-text"></h5>
+                        <ul>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+               
+            </div>
+        </footer>
 </h:body>
 </html>
